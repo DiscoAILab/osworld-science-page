@@ -1,0 +1,288 @@
+/* OSWorld-Science: "Case Studies" and "Failures and Successes, Side by Side" (markup from build_site.py,
+   behaviour from static/js/osciStories.js). Loaded after osci.css. */
+
+body.minimal-home .osci-stories-section .container.is-max-desktop { max-width: 1120px; }
+body.minimal-home .osci-tabs-block { width: 100%; margin: 1.2rem auto 0; }
+
+/* ---------- tab lists (case studies and task pairs) ---------- */
+body.minimal-home .osci-tab-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 1.1rem;
+}
+body.minimal-home .osci-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f2937;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+body.minimal-home .osci-tab span {
+  font-family: var(--mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #5b6371;
+}
+body.minimal-home .osci-tab strong { font-size: 0.86rem; line-height: 1.25; color: #14171c; }
+body.minimal-home .osci-tab:hover { border-color: #8b93a1; }
+body.minimal-home .osci-tab:focus-visible { outline: 2px solid #1d4f91; outline-offset: 2px; }
+body.minimal-home .osci-tab.is-active { border-color: #111318; background: #111318; }
+body.minimal-home .osci-tab.is-active span { color: #c9ced8; }
+body.minimal-home .osci-tab.is-active strong { color: #fff; }
+
+/* ---------- shared pieces ---------- */
+body.minimal-home .osci-kicker {
+  margin: 0 0 0.3rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #5b6371;
+}
+body.minimal-home .osci-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+body.minimal-home .osci-badge.is-pass { color: #0f5f33; background: #e3f4ea; border-color: #9fd3b4; }
+body.minimal-home .osci-badge.is-fail { color: #8f1d1d; background: #fbe7e7; border-color: #eab0b0; }
+body.minimal-home .osci-badge.is-mid { color: #7a4a06; background: #fdf1dc; border-color: #ecc98a; }
+body.minimal-home .osci-badge.is-score { color: #1f2937; background: #f3f4f6; border-color: #d1d5db; }
+body.minimal-home .osci-model-chip { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: #14171c; }
+body.minimal-home .osci-model-chip img { width: 16px; height: 16px; flex: 0 0 16px; object-fit: contain; }
+body.minimal-home .osci-case-text { max-width: 900px; margin: 1.1rem auto 0; }
+body.minimal-home .osci-case-text h4 {
+  margin: 0 0 0.35rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5b6371;
+}
+body.minimal-home .osci-case-text > p { margin: 0; color: #2b313b; font-size: 0.98rem; line-height: 1.6; }
+body.minimal-home .osci-takeaway {
+  margin-top: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid #1d4f91;
+  border-radius: 0 8px 8px 0;
+  background: #f1f5fb;
+}
+body.minimal-home .osci-takeaway span {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4f91;
+}
+body.minimal-home .osci-takeaway p { margin: 0; color: #14171c; font-size: 1rem; line-height: 1.55; font-weight: 600; }
+
+/* ---------- case studies ---------- */
+body.minimal-home .osci-case,
+body.minimal-home .osci-pair {
+  padding: clamp(0.9rem, 2vw, 1.4rem);
+  border: 1px solid #d9dee7;
+  border-radius: 12px;
+  background: #fff;
+}
+body.minimal-home .osci-case[hidden], body.minimal-home .osci-pair[hidden] { display: none; }
+body.minimal-home .osci-case-head h3,
+body.minimal-home .osci-pair-head h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display, serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #14171c;
+}
+body.minimal-home .osci-case-meta { margin: 0 0 0.6rem; font-size: 0.9rem; color: #3b414b; }
+body.minimal-home .osci-case-meta span,
+body.minimal-home .osci-pair-task span,
+body.minimal-home .osci-run-narration span {
+  margin-right: 0.45rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5b6371;
+}
+body.minimal-home .osci-case-meta em { font-style: normal; color: #5b6371; }
+/* the template gives every <em> a grey background (index.css); these two are plain text */
+body.minimal-home .osci-case-meta em,
+body.minimal-home .osci-step-no em { background: transparent !important; border-color: transparent !important; }
+body.minimal-home .osci-case-runs { display: grid; gap: 5px; margin: 0 0 1rem; padding: 0; list-style: none; }
+body.minimal-home .osci-case-runs li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+body.minimal-home .osci-case-runs .osci-badge { min-width: 5.6rem; justify-content: center; }
+body.minimal-home .osci-case-run-label { color: #3b414b; }
+body.minimal-home .osci-case-figure { margin: 0; }
+body.minimal-home .osci-case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e3e6ec;
+  border-radius: 8px;
+  background: #fff;
+}
+body.minimal-home .osci-case-figure figcaption { margin-top: 0.55rem; font-size: 0.84rem; line-height: 1.5; color: #4b5260; }
+body.minimal-home .osci-case-note { margin: 0.5rem 0 0; font-size: 0.84rem; font-style: italic; color: #5b6371; }
+
+/* ---------- side-by-side pairs ---------- */
+body.minimal-home .osci-pair-task {
+  margin: 0;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  background: #f6f7f9;
+  color: #2b313b;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+body.minimal-home .osci-pair-runs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 1rem;
+}
+body.minimal-home .osci-run {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid #d9dee7;
+  border-top-width: 4px;
+  border-radius: 10px;
+  background: #fcfcfd;
+}
+body.minimal-home .osci-run.is-success { border-top-color: #2f8f5b; }
+body.minimal-home .osci-run.is-failure { border-top-color: #c24141; }
+@supports (grid-template-rows: subgrid) {
+  /* the two runs share row heights, so both step viewers start at the same height */
+  body.minimal-home .osci-pair-runs { grid-template-rows: auto auto auto; }
+  body.minimal-home .osci-run { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+}
+body.minimal-home .osci-run-kind {
+  margin: 0 0 0.2rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+body.minimal-home .osci-run.is-success .osci-run-kind { color: #1f6f45; }
+body.minimal-home .osci-run.is-failure .osci-run-kind { color: #a12f2f; }
+body.minimal-home .osci-run-head h4 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+body.minimal-home .osci-run-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 0.35rem; }
+body.minimal-home .osci-run-meta { margin: 0 0 0.3rem; font-size: 0.84rem; color: #4b5260; }
+body.minimal-home .osci-run-meta abbr { text-decoration: underline dotted; cursor: help; }
+body.minimal-home .osci-run-result { margin: 0 0 0.6rem; font-size: 0.9rem; line-height: 1.45; color: #1f2937; }
+body.minimal-home .osci-run-note { margin: -0.3rem 0 0.6rem; font-size: 0.8rem; line-height: 1.4; color: #5b6371; font-style: italic; }
+body.minimal-home .osci-stepper { min-width: 0; }
+body.minimal-home .osci-step { margin: 0; }
+body.minimal-home .osci-step[hidden] { display: none; }
+body.minimal-home .osci-step img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border: 1px solid #d9dee7;
+  border-radius: 6px;
+  background: #111318;
+}
+body.minimal-home .osci-step figcaption { margin-top: 0.5rem; font-size: 0.88rem; line-height: 1.5; color: #2b313b; }
+body.minimal-home .osci-step-no {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #14171c;
+}
+body.minimal-home .osci-step-no em { font-style: normal; font-weight: 600; color: #6b7280; }
+body.minimal-home .osci-stepper-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 0.6rem;
+}
+body.minimal-home .osci-step-btn {
+  padding: 4px 12px;
+  border: 1px solid #c9ced8;
+  border-radius: 999px;
+  background: #fff;
+  color: #14171c;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+body.minimal-home .osci-step-btn:hover:not(:disabled) { border-color: #111318; }
+body.minimal-home .osci-step-btn:focus-visible { outline: 2px solid #1d4f91; outline-offset: 2px; }
+body.minimal-home .osci-step-btn:disabled { opacity: 0.4; cursor: default; }
+body.minimal-home .osci-step-count { font-family: var(--mono, monospace); font-size: 0.8rem; color: #4b5260; font-variant-numeric: tabular-nums; }
+body.minimal-home .osci-run-narration { margin: 0.7rem 0 0; font-size: 0.8rem; line-height: 1.45; color: #5b6371; }
+body.minimal-home .osci-pair-defs { margin: 0.8rem 0 0; font-size: 0.8rem; line-height: 1.5; color: #5b6371; text-align: center; }
+
+@media (min-width: 721px) {
+  /* step viewers: all frames share one grid cell, so the frame box is as tall as the longest caption and Previous /
+     Next stay in place while stepping; they sit at the bottom of the shared row, level in both runs. A hidden frame
+     keeps an empty 16:9 box instead of its screenshot, so its image is still fetched only when needed. */
+  body.minimal-home .osci-stepper { display: flex; flex-direction: column; }
+  body.minimal-home .osci-stepper-frames { display: grid; flex: 1 0 auto; }
+  body.minimal-home .osci-step { grid-area: 1 / 1; }
+  body.minimal-home .osci-step[hidden] { display: block; visibility: hidden; }
+  body.minimal-home .osci-step[hidden] .osci-figure-link { aspect-ratio: 16 / 9; }
+  body.minimal-home .osci-step[hidden] img { display: none; }
+}
+@supports (grid-template-columns: subgrid) {
+  @media (min-width: 721px) {
+    /* case-study run list as three aligned columns (outcome, model, label); a long label wraps in its own column */
+    body.minimal-home .osci-case-runs { grid-template-columns: auto max-content minmax(0, 1fr); gap: 5px 10px; }
+    body.minimal-home .osci-case-runs li { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; align-items: start; }
+  }
+}
+@media (max-width: 980px) {
+  body.minimal-home .osci-tab-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  /* phones: tabs scroll sideways, runs stack */
+  body.minimal-home .osci-tab-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  body.minimal-home .osci-tab { flex: 0 0 58%; scroll-snap-align: start; }
+  body.minimal-home .osci-pair-runs { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  body.minimal-home .osci-run { display: flex; grid-row: auto; }
+  body.minimal-home .osci-case, body.minimal-home .osci-pair { padding: 0.75rem; }
+  body.minimal-home .osci-case-runs .osci-badge { min-width: 0; }
+}

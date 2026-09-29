@@ -1,19 +1,1490 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="OSWorld-Science: a benchmark of 146 expert-designed tasks in 14 scientific software configurations across seven domains, with execution-based grading, for computer-use agents built on vision-language models.">
+  <meta name="keywords" content="OSWorld-Science, computer-use agents, GUI agents, vision-language models, scientific software, benchmark, QuPath, ChemDraw, ASKCOS, SAS, OpenFOAM, ANSYS, EEGLAB, QGIS, Praat">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software">
+  <meta property="og:description" content="OSWorld-Science: a benchmark of 146 expert-designed tasks in 14 scientific software configurations across seven domains, with execution-based grading, for computer-use agents built on vision-language models.">
+  <meta property="og:image" content="static/images/paper/figure1_overall.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software">
+  <meta name="twitter:description" content="OSWorld-Science: a benchmark of 146 expert-designed tasks in 14 scientific software configurations across seven domains, with execution-based grading, for computer-use agents built on vision-language models.">
+  <meta name="twitter:image" content="static/images/paper/figure1_overall.png">
+  <title>OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="stylesheets/index.css">
+  <link rel="stylesheet" href="static/css/benchmark-sweep.css">
+  <link rel="stylesheet" href="static/css/osworld-official-match.css">
+  <link rel="stylesheet" href="static/css/osci.css">
+  <link rel="stylesheet" href="static/css/osci-stories.css">
+  <link rel="icon" type="image/png" href="static/images/osci/favicon.png">
+  <link rel="apple-touch-icon" href="static/images/osci/apple-touch-icon.png">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/osciData.js"></script>
+  <script defer src="static/js/leaderboard.js"></script>
+  <script defer src="static/js/taskShowcaseData.js"></script>
+  <script defer src="static/js/softwareLogos.js"></script>
+  <script defer src="static/js/domainInteraction.js"></script>
+  <script defer src="static/js/economicCoverage.js"></script>
+  <script defer src="static/js/osciStories.js"></script>
+  <script defer src="static/js/benchmarkSweep.js"></script>
+  <script defer src="static/js/findingsCarousel.js"></script>
+</head>
+
+
+<body class="minimal-home">
+  <main id="top">
+
+
+    <section class="hero osworld-hero" id="home">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="osworld-hero-grid">
+            <div class="osworld-hero-copy">
+              <h1 class="title is-1 publication-title">
+                <span class="hero-title-line hero-title-main">OSWorld-Science</span>
+                <span class="hero-title-line hero-title-subtitle">A Benchmark of Computer Use Agents for</span>
+                <span class="hero-title-line hero-title-subtitle">
+                  <span class="hero-summary-highlight">Learning and Using Scientific Software</span>
+                </span>
+              </h1>
+
+              <div class="is-size-5 publication-authors">
+                <div class="author-rows" aria-label="Paper authors">
+                  <div class="author-list author-row" aria-label="Co-first authors">
+                    <span class="author-entry"><span class="author-block">Dingyuan Dai</span><sup class="author-affiliation-mark">2,*</sup></span>
+                    <span class="author-entry"><span class="author-block">Heli Qi</span><sup class="author-affiliation-mark">3,*</sup></span>
+                    <span class="author-entry"><span class="author-block">Lei Liu</span><sup class="author-affiliation-mark">6,*</sup></span>
+                    <span class="author-entry"><span class="author-block">Yinxi Li</span><sup class="author-affiliation-mark">4,*</sup></span>
+                    <span class="author-entry"><span class="author-block">Baiding Chen</span><sup class="author-affiliation-mark">5,*</sup></span>
+                    <span class="author-entry"><span class="author-block">Zijun Dou</span><sup class="author-affiliation-mark">1,*</sup></span>
+                  </div>
+                  <div class="author-list author-row" aria-label="Contributors">
+                    <span class="author-entry"><span class="author-block">Qingcheng Zeng</span><sup class="author-affiliation-mark">7</sup></span>
+                    <span class="author-entry"><span class="author-block">Qi Kang</span><sup class="author-affiliation-mark">8</sup></span>
+                    <span class="author-entry"><span class="author-block">Oliver Sun</span><sup class="author-affiliation-mark">9</sup></span>
+                    <span class="author-entry"><span class="author-block">Eric Wang</span><sup class="author-affiliation-mark">9</sup></span>
+                    <span class="author-entry"><span class="author-block">Bo Zhou</span><sup class="author-affiliation-mark">10</sup></span>
+                    <span class="author-entry"><span class="author-block">Haixin Wang</span><sup class="author-affiliation-mark">2</sup></span>
+                    <span class="author-entry"><span class="author-block">Yufan Du</span><sup class="author-affiliation-mark">2</sup></span>
+                    <span class="author-entry"><span class="author-block">Shi Bo</span><sup class="author-affiliation-mark">11</sup></span>
+                    <span class="author-entry"><span class="author-block">Ruihan Lin</span><sup class="author-affiliation-mark">4</sup></span>
+                    <span class="author-entry"><span class="author-block">Mengqi Yuan</span><sup class="author-affiliation-mark">12</sup></span>
+                    <span class="author-entry"><span class="author-block">Dunjie Lu</span><sup class="author-affiliation-mark">12</sup></span>
+                    <span class="author-entry"><span class="author-block">Steven Dillmann</span><sup class="author-affiliation-mark">13</sup></span>
+                    <span class="author-entry"><span class="author-block">Yiming Shi</span><sup class="author-affiliation-mark">6</sup></span>
+                    <span class="author-entry"><span class="author-block">Tina Su</span><sup class="author-affiliation-mark">6</sup></span>
+                    <span class="author-entry"><span class="author-block">Xin Xin</span><sup class="author-affiliation-mark">1</sup></span>
+                    <span class="author-entry"><span class="author-block">Minghao Liu</span><sup class="author-affiliation-mark">16</sup></span>
+                    <span class="author-entry"><span class="author-block">Xi Wang</span><sup class="author-affiliation-mark">14</sup></span>
+                    <span class="author-entry"><span class="author-block">Xu Huang</span><sup class="author-affiliation-mark">9</sup></span>
+                  </div>
+                  <div class="author-list author-row" aria-label="Corresponding authors">
+                    <span class="author-entry"><span class="author-block">Ge Zhang</span><sup class="author-affiliation-mark">15,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Pengyu Nie</span><sup class="author-affiliation-mark">4,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Zhen Yang</span><sup class="author-affiliation-mark">1,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Jie Tang</span><sup class="author-affiliation-mark">1,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Juanzi Li</span><sup class="author-affiliation-mark">1,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Weihao Xuan</span><sup class="author-affiliation-mark">16,3,15,&dagger;</sup></span>
+                    <span class="author-entry"><span class="author-block">Tianyu Liu</span><sup class="author-affiliation-mark">1,6,*,&dagger;</sup></span>
+                  </div>
+                </div>
+
+                <div class="author-affiliation-list" aria-label="Author affiliations">
+                  <span class="affiliation-entry"><sup>1</sup>Tsinghua University</span>
+                  <span class="affiliation-entry"><sup>2</sup>University of California, Los Angeles</span>
+                  <span class="affiliation-entry"><sup>3</sup>RIKEN AIP</span>
+                  <span class="affiliation-entry"><sup>4</sup>University of Waterloo</span>
+                  <span class="affiliation-entry"><sup>5</sup>Carnegie Mellon University</span>
+                  <span class="affiliation-entry"><sup>6</sup>Yale University</span>
+                  <span class="affiliation-entry"><sup>7</sup>Northwestern University</span>
+                  <span class="affiliation-entry"><sup>8</sup>Zhejiang University</span>
+                  <span class="affiliation-entry"><sup>9</sup>University of California, Berkeley</span>
+                  <span class="affiliation-entry"><sup>10</sup>University of Illinois Chicago</span>
+                  <span class="affiliation-entry"><sup>11</sup>Boston University</span>
+                  <span class="affiliation-entry"><sup>12</sup>The University of Hong Kong</span>
+                  <span class="affiliation-entry"><sup>13</sup>Stanford University</span>
+                  <span class="affiliation-entry"><sup>14</sup>New York University</span>
+                  <span class="affiliation-entry"><sup>15</sup>TokenWave.AI</span>
+                  <span class="affiliation-entry"><sup>16</sup>The University of Tokyo</span>
+                </div>
+                <p class="author-footnote"><sup>*</sup>Equal contribution (co-first authors). &nbsp; <sup>&dagger;</sup>Corresponding authors.</p>
+                <figure class="hero-logo-strip">
+                  <picture>
+                    <source media="(max-width: 720px)" srcset="static/images/osci/institution_logos_4rows.png" width="1600" height="995">
+                    <img src="static/images/osci/institution_logos.png" width="3200" height="638" decoding="async"
+                      alt="Logos of the contributing institutions: DiscoAILab, Tsinghua University, UCLA, RIKEN AIP, Yale University, University of Waterloo, Carnegie Mellon University, Northwestern University, Zhejiang University, UC Berkeley, University of Illinois Chicago, Boston University, The University of Hong Kong, Stanford University, New York University, The University of Tokyo">
+                  </picture>
+                </figure>
+              </div>
+
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/paper/OSWorld-Science.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Download PDF</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/larryinx/OSWorld-Science" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/SciAILab/OSWorld-Science-data" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                    <span class="icon huggingface-icon-wrap">
+                      <img class="huggingface-icon" src="static/images/huggingface_logo-noborder.svg" alt="" aria-hidden="true">
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="task-showcase/index.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-images"></i></span>
+                    <span>Task showcase</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRYkEIXTsllKYqSP8nYVLpA9KYhPFvMFRxseyc4y_HWnadlg/viewform?usp=dialog" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                    <span class="icon"><i class="fas fa-plus"></i></span>
+                    <span>Contribute tasks</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <figure class="osworld-hero-figure osworld-hero-video">
+              <video autoplay muted loop playsinline controls preload="auto" poster="static/videos/demo_v2/osworld-science-grid-9x9-white_black-1.5x-poster.jpg" width="1920" height="1080"
+                aria-label="Grid of agent screen recordings from nine scientific applications, played at 1.5 times speed">
+                <source src="static/videos/demo_v2/osworld-science-grid-9x9-white_black-1.5x.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <figcaption class="hero-video-caption">81 real agent trajectories across nine scientific applications, played at 1.5&times; speed.</figcaption>
+            </figure>
+          </div>
+
+          <div class="hero-metrics hero-metrics-four" aria-label="OSWorld-Science headline statistics">
+            <div class="metric-card">
+              <span class="metric-value">7</span>
+              <span class="metric-label">Scientific domains</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">14</span>
+              <span class="metric-label">Software configurations</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">146</span>
+              <span class="metric-label">Expert-designed tasks</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value">34.3%</span>
+              <span class="metric-label">Average score across 12 models</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Abstract</h2>
+          </div>
+        </div>
+
+        <div class="content abstract-copy">
+          <p>Scientific software presents a demanding test for computer-using agents based on visual language models (VLMs): completing a research workflow requires interpreting specialized interfaces, manipulating scientific objects, and producing verifiable results. We thus introduce OSWorld-Science, a benchmark and evaluation environment that combines scientifically meaningful tasks, artifact-based evaluation, and an efficient agent harness for studying computer use in the scientific domain. The benchmark contains <strong>12</strong> VLMs and <strong>146</strong> high-quality tasks across several scientific domains and software configurations, covering workflows such as molecular drawing and retrosynthesis, pathology image analysis, statistical computing, and physical simulation. Tasks are developed through expert proposals and iterative human–AI co-design, with selection guided by scientific value and difficulty. Task-specific execution-based evaluators inspect application states and generated artifacts, including molecular structures, segmentation masks, plots, and numerical results, and award partial credit for incomplete outcomes. Our special harness integrates model adapters, interaction-loop control, and trajectory logging to support comparisons of models and interaction strategies. This combination makes OSWorld-Science a testbed for examining how agents coordinate visual interpretation with graphical and command-line actions. Our results shows that current state-of-the-art VLMs with a strong harness still face challenges in addressing key questions in the scientific domains. We also analyze the benchmarking results across multi-linguistics, reasoning efforts, context length and other factors and derive several important conclusions and directions to assist future development. Overall, we provide an integrated framework connecting expert-defined scientific goals to verifiable software outcomes, enabling systematic evaluation of both agent capabilities and harness design in scientific workflows. <strong>We also welcome public contributions now: <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRYkEIXTsllKYqSP8nYVLpA9KYhPFvMFRxseyc4y_HWnadlg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" aria-label="Task contribution form">Link</a>!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section main-figure-section" aria-label="OSWorld-Science main figure">
+      <div class="container is-max-desktop">
+        <figure class="paper-figure osci-main-figure">
+          <a class="osci-figure-link" href="static/images/paper/figure1_overall.png" target="_blank" rel="noopener" title="Open the full-size figure">
+          <picture>
+            <source srcset="static/images/paper/figure1_overall.webp" type="image/webp">
+            <img src="static/images/paper/figure1_overall.png" width="2400" height="1032" decoding="async" fetchpriority="high"
+              alt="Overview of OSWorld-Science in three panels: 1, task and environment (expert proposal, co-worker design, filtering by diversity, difficulty and scientific value, multilingual and multi-domain tasks); 2, harness and agent loop (VM configurations, loop controller, VLM adapter, screenshots and actions); 3, evaluation and analysis (step-wise and binary grading, behavior experiments, discussion).">
+          </picture>
+          </a>
+          <figcaption>
+            Overview of OSWorld-Science: expert task design and filtering, the evaluation harness and agent loop, and the grading and behavior analyses.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section benchmark-sweep-section" id="results" aria-label="Interactive OSWorld-Science results sweep">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Score, Tokens and Cost</h2>
+            <p class="section-deck">Twelve models, one run per task at their default reasoning effort. Pick a task set, then compare the mean score with output tokens or cost per task.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container is-max-desktop benchmark-sweep-container">
+        <div class="benchmark-sweep" id="benchmark-sweep">
+          <div class="benchmark-plot-row">
+            <div class="benchmark-plot-column">
+              <div class="benchmark-sweep-controls">
+                <div class="benchmark-chart-switches">
+                  <div class="benchmark-scope-switch benchmark-segmented" role="group" aria-label="Task set">
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="all" aria-pressed="true" title="All domains, 146 tasks">All <small>146</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="med" aria-pressed="false" title="Medical imaging, 26 tasks">Medical imaging <small>26</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="bio" aria-pressed="false" title="Bio, 8 tasks">Bio <small>8</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="eeg" aria-pressed="false" title="EEG, 10 tasks">EEG <small>10</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="chem" aria-pressed="false" title="Chemistry, 43 tasks">Chemistry <small>43</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="stat" aria-pressed="false" title="Statistics, 20 tasks">Statistics <small>20</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="geo" aria-pressed="false" title="Geoscience, 6 tasks">Geoscience <small>6</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="ling" aria-pressed="false" title="Linguistics, 2 tasks">Linguistics <small>2</small></button>
+                    <button class="benchmark-metric-btn" type="button" data-benchmark-scope="phys" aria-pressed="false" title="Physics, 31 tasks">Physics <small>31</small></button>
+                  </div>
+                </div>
+                <div class="benchmark-axis-controls">
+                  <div class="benchmark-control-group">
+                    <span class="benchmark-control-label">X</span>
+                    <div class="benchmark-segmented" role="group" aria-label="X-axis metric">
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-x-metric="tokens" aria-pressed="true">Output tokens</button>
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-x-metric="cost" aria-pressed="false">Cost</button>
+                    </div>
+                  </div>
+                  <div class="benchmark-control-group">
+                    <span class="benchmark-control-label">Y</span>
+                    <div class="benchmark-segmented is-y-axis" role="group" aria-label="Y-axis score metric">
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-y-metric="mean" aria-pressed="true">Partial score</button>
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-y-metric="binary" aria-pressed="false">Binary score</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="benchmark-chart-wrap" id="benchmarkSweepChartWrap">
+                <svg id="benchmarkSweepChart" viewBox="0 0 720 460" role="img" aria-label="Interactive OSWorld-Science sweep chart: score against output tokens or cost per task" aria-describedby="benchmarkSweepCaption"></svg>
+                <div class="benchmark-tooltip" id="benchmarkSweepTooltip" role="status" aria-live="polite"></div>
+              </div>
+              <p class="benchmark-chart-caption" id="benchmarkSweepCaption">Partial = mean task score with partial credit; Binary = share of tasks scored 1; VOID runs count as 0. Output tokens include thinking tokens. Cost and output tokens come from the results workbook (its recorded cost, or its input and output tokens at list prices); where it has no usage (Statistics output tokens, radiology, linguistics) they come from the released trajectory records. Kimi K3's Bio cost is its reported total, counted as output tokens. Cost and tokens are averaged over tasks with recorded usage; a model without recorded usage for a set is left off that axis and shown as "--" in the table.</p>
+            </div>
+
+            <section class="benchmark-table-section" aria-label="OSWorld-Science results table">
+              <div class="benchmark-data-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th data-benchmark-sort="model">Model</th>
+                      <th data-benchmark-sort="x" id="benchmarkSweepXHeader">Output tokens / task</th>
+                      <th data-benchmark-sort="score" id="benchmarkSweepScoreHeader">Partial score</th>
+                      <th data-benchmark-sort="other" id="benchmarkSweepOtherHeader">Binary score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="benchmarkSweepRows"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <aside class="benchmark-model-panel" aria-label="Model visibility">
+            <p class="benchmark-panel-title">Models</p>
+            <div class="benchmark-model-toggles" id="benchmarkModelToggles"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="statistics">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Task Statistics</h2>
+            <p class="section-deck">146 tasks in 7 scientific domains and 14 software configurations, proposed by domain experts and filtered for diversity, difficulty and scientific value.</p>
+          </div>
+        </div>
+
+        <div class="statistics-visual-grid statistics-four-grid">
+          <div class="statistics-story">
+            <div class="statistics-time-copy">
+              <h3>Interaction Demands</h3>
+              <p>
+                All 146 tasks are observed through screenshots of the application. 122 of them
+                (83.6%) also allow the command line, while 24 (16.4%) are GUI-only
+                (ASKCOS retrosynthesis, PDF reading and Praat). Four software configurations, QuPath, ChemDraw, ASKCOS and SAS/R,
+                carry 85 tasks.
+              </p>
+            </div>
+            <div class="osci-cli-split" role="img" aria-label="CLI support: 122 tasks allow the command line, 24 are GUI-only">
+              <p class="osci-cli-note">CLI support by task (146 tasks)</p>
+              <div class="osci-cli-bar" aria-hidden="true">
+                <span class="is-cli" style="flex: 122 1 0"></span>
+                <span class="is-gui" style="flex: 24 1 0"></span>
+              </div>
+              <div class="osci-cli-legend" aria-hidden="true">
+                <span><i class="is-cli"></i><strong>122</strong> CLI supported (83.6%)</span>
+                <span><i class="is-gui"></i><strong>24</strong> GUI-only (16.4%)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="domain-stat-section">
+            <div class="domain-stat-copy">
+              <h3>Task Domain Distribution</h3>
+              <p>
+                Chemistry and physics carry half of the tasks; medicine, statistics and biology most of the rest.
+                The inner ring is the domain, the outer ring the software each task runs in. Hover a segment or a logo for its count.
+              </p>
+              <p class="osci-stat-note">
+                Software counts follow the graded task list. The capability tags and operation templates follow the task
+                annotation sheet, which files one structure-recognition task under ASKCOS.
+              </p>
+            </div>
+            <div class="domain-stat-layout">
+              <div class="domain-explorer" id="domain-explorer">
+                <div class="domain-chart-shell" aria-label="Interactive OSWorld-Science task domain distribution">
+                  <svg id="domain-donut" class="domain-donut" viewBox="0 0 520 520" role="img" aria-label="OSWorld-Science task domain distribution."></svg>
+                  <div class="domain-tooltip" id="domain-tooltip" hidden></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="economic-coverage" id="economic-coverage">
+          <div class="economic-copy">
+            <h3>Required Capabilities</h3>
+            <p>
+              Besides screen observation, every task is annotated with the interaction primitives it needs: clicking in
+              124 tasks, typing in 101, drawing in 21, explicit screenshot capture in 21
+              and table analysis in 1. Tags are non-exclusive, so the 268 annotations exceed the task count.
+            </p>
+          </div>
+
+          <div class="economic-chart-wrap" aria-label="Interactive OSWorld-Science capability annotations">
+            <svg id="economic-donut" class="economic-donut" viewBox="-80 -55 760 650" role="img" aria-label="Capability annotations. Inner ring shows share of tags and outer ring shows task count."></svg>
+            <div class="economic-ring-legend" aria-hidden="true">
+              <span><i></i> Inner Ring: Share of Tags</span>
+              <span><i></i> Outer Ring: Task Count</span>
+            </div>
+            <div class="economic-tooltip" id="economic-tooltip" hidden></div>
+          </div>
+
+          <div class="economic-table-wrap">
+            <div class="economic-table-body" id="economic-table-body"></div>
+          </div>
+          </div>
+
+          <div class="challenge-phenomena-panel" id="challenge-phenomena">
+            <div class="challenge-phenomena-copy">
+              <h3>Operation Templates</h3>
+              <p>
+                Each task follows one of 10 operation templates that describe what the agent must read and how it must act.
+                Hover a template for its meaning.
+              </p>
+            </div>
+            <div class="challenge-phenomena-table-wrap">
+              <table class="challenge-phenomena-table">
+                <caption>
+                  Counts are over 146 tasks. Each task carries exactly one template. Two names are lightly reworded from the task annotations, which read &ldquo;read sound file, text, click, type&rdquo; and &ldquo;read pdf, analyze table, out&rdquo;.
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Template</th>
+                    <th>Tasks</th>
+                    <th>Share</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="challenge-term" tabindex="0">Read text, click, type<span class="challenge-definition">Read on-screen text or a data file, then drive the application with clicks and typed input (SAS/R, OpenFOAM, ANSYS, CIAO with DS9).</span></span></td><td>51</td><td>34.9%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read pathology images, click, type<span class="challenge-definition">Inspect a whole-slide image in QuPath, then annotate, measure or export through the GUI or scripting.</span></span></td><td>23</td><td>15.8%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read PDF, take screenshot, draw<span class="challenge-definition">Find a structure in a paper PDF, capture it, and redraw it in ChemDraw.</span></span></td><td>21</td><td>14.4%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Understand molecule, click<span class="challenge-definition">Reason about a target molecule and navigate ASKCOS retrosynthesis results.</span></span></td><td>21</td><td>14.4%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read signal file, text, click, type<span class="challenge-definition">Load EEG recordings in EEGLAB, read the accompanying text, and run an analysis with typed parameters.</span></span></td><td>10</td><td>6.8%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Understand molecule, click, type<span class="challenge-definition">Work with protein structures or NMR spectra in PyMOL or Mnova, typing identifiers and parameters.</span></span></td><td>8</td><td>5.5%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read geographic images, click, type<span class="challenge-definition">Digitize or analyze raster and vector layers in QGIS.</span></span></td><td>6</td><td>4.1%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read MRI images, click, type<span class="challenge-definition">Review radiology series in Weasis or 3D Slicer and record findings.</span></span></td><td>3</td><td>2.1%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read sound file, text, click<span class="challenge-definition">Acoustic inspection of recordings in Praat, driven by clicks only.</span></span></td><td>2</td><td>1.4%</td></tr>
+                  <tr><td><span class="challenge-term" tabindex="0">Read PDF, analyze table, output<span class="challenge-definition">Extract a table from a PDF and produce a derived result.</span></span></td><td>1</td><td>0.7%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leaderboard">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Leaderboard</h2>
+          </div>
+        </div>
+        <div id="leaderboard-root" class="leaderboard-root" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis" data-findings-carousel>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Key Findings</h2>
+            <div class="findings-heading-row">
+              <button class="findings-heading-arrow" type="button" data-findings-prev aria-label="Previous finding" title="Previous finding">
+                <span aria-hidden="true">&lt;</span>
+              </button>
+              <p class="findings-current-title" data-findings-title-target>Score and Token Budget</p>
+              <button class="findings-heading-arrow" type="button" data-findings-next aria-label="Next finding" title="Next finding">
+                <span aria-hidden="true">&gt;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="findings-carousel">
+          <div class="findings-viewport">
+            <article class="findings-slide is-active" data-findings-slide
+              data-findings-title="Score and Token Budget">
+              <figure class="findings-figure">
+                <div class="findings-image-frame findings-image-frame-sweep">
+                  <div class="benchmark-sweep benchmark-sweep-embed is-findings-sweep" aria-label="Interactive score and token sweep, all 146 tasks">
+                    <div class="benchmark-plot-column">
+                      <div class="benchmark-chart-wrap" data-benchmark-chart-wrap>
+                        <div class="benchmark-sweep-controls">
+                <div class="benchmark-axis-controls">
+                  <div class="benchmark-control-group">
+                    <span class="benchmark-control-label">X</span>
+                    <div class="benchmark-segmented" role="group" aria-label="Finding X-axis metric">
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-x-metric="tokens" aria-pressed="true">Output tokens</button>
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-x-metric="cost" aria-pressed="false">Cost</button>
+                    </div>
+                  </div>
+                  <div class="benchmark-control-group">
+                    <span class="benchmark-control-label">Y</span>
+                    <div class="benchmark-segmented is-y-axis" role="group" aria-label="Finding Y-axis score metric">
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-y-metric="mean" aria-pressed="true">Partial score</button>
+                      <button class="benchmark-metric-btn" type="button" data-benchmark-y-metric="binary" aria-pressed="false">Binary score</button>
+                    </div>
+                  </div>
+                </div>
+                        </div>
+                        <svg class="benchmark-sweep-chart" data-benchmark-chart viewBox="0 0 720 420" role="img"
+                          aria-label="Interactive chart: mean score against output tokens per task on all 146 tasks"></svg>
+                        <div class="benchmark-tooltip" data-benchmark-tooltip role="status" aria-live="polite"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+              <div class="findings-copy">
+                <h3>Higher Scores Do Not Require the Most Tokens</h3>
+                <p>
+                  Claude Fable 5.1 leads with a mean score of 73.7% over the 146 tasks while producing about 21K output tokens per task.
+                </p>
+                <ul class="findings-points">
+                  <li>Claude Opus 5 reaches 57.9% with about 80K.</li>
+                  <li>GPT-6 Astra (57.4%) and GPT-5.6 sol (50.1%) are the most frugal of the top four, at about 12K and 14K.</li>
+                  <li>Gemini 3.1 Pro spends about 157K output tokens per task for 17.2%.</li>
+                  <li>In dollars, GPT-5.6 luna reaches 22.6% for $0.21 per task, while Kimi K3 costs $10.31 for 30.2%.</li>
+                </ul>
+                <p class="findings-note">Token and cost averages cover all 146 tasks for every model.</p>
+              </div>
+            </article>
+            <article class="findings-slide" data-findings-slide
+              data-findings-title="Domain Difficulty" hidden>
+              <figure class="findings-figure">
+                <div class="findings-image-frame findings-image-frame-heatmap">
+                  <a class="osci-figure-link" href="static/images/osci/domain_heatmap.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="static/images/osci/domain_heatmap.png" width="1480" height="1120" loading="lazy" decoding="async" alt="Heatmap of mean partial score (%) for 12 models across Med, Bio, EEG, Chem, Stat, Geo, Ling, Phys and All; Statistics is high for every model, Chemistry low for all but Claude Fable 5.1 and Claude Opus 5."></a>
+                </div>
+              </figure>
+              <div class="findings-copy">
+                <h3>Difficulty and Rankings Depend on the Domain</h3>
+                <p>
+                  Statistics is close to saturation: every model scores between 66% and 97%.
+                </p>
+                <ul class="findings-points">
+                  <li>Chemistry is the hardest domain: only Claude Fable 5.1 (44%) and Claude Opus 5 (39%) exceed 20%.</li>
+                  <li>Rankings reorder between domains: GPT-6 Astra leads medical imaging (69%) and linguistics (100%) but scores 6% in chemistry, and Claude Opus 5 scores 97% in statistics but 5% in linguistics.</li>
+                  <li>Physics separates frontier models sharply: Claude Fable 5.1 solves all 31 tasks, while four models stay below 18%.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="findings-slide findings-slide-stacked" data-findings-slide
+              data-findings-title="Failure Modes" hidden>
+              <figure class="findings-figure">
+                <div class="findings-image-frame findings-image-frame-wide">
+                  <a class="osci-figure-link" href="static/images/paper/fig_trajectory.png" target="_blank" rel="noopener" title="Open the full-size figure"><img src="static/images/paper/fig_trajectory.png" width="2000" height="835" loading="lazy" decoding="async" alt="(a) Outcome of each model&#39;s runs as shares: full credit, wrong content, invalid artifact, no deliverable (placeholder or none), harness-ended. (b) Per-run behavior shares: GUI and CLI steps, narration, thinking, repeats, clicks, typing, key presses, hotkeys. (c) Differences between full-credit runs and other runs, across models and within model and domain."></a>
+                </div>
+              </figure>
+              <div class="findings-copy">
+                <h3>Most Failures Leave Nothing to Grade</h3>
+                <p>
+                  Across the 1,530 released trajectories, 61% of the failed runs end without the graded artifact, and 613 of these 667 runs exhaust their step or time budget rather than stop early.
+                </p>
+                <ul class="findings-points">
+                  <li>Claude Fable 5.1, Claude Opus 5, GPT-6 Astra and GPT-5.6 sol deliver nothing in 1&ndash;25% of their runs, while Claude Sonnet 5, Gemini 3.1 Pro, Qwen3.7-Plus, Qwen-CUA and MiniMax M3 deliver nothing in 60&ndash;78%.</li>
+                  <li>Narration and thinking share are stable signatures of each model, but once model and domain are fixed they do not predict success.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <span class="findings-status" data-findings-status aria-live="polite">1 / 3</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section osci-stories-section" id="case-studies">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Case Studies</h2>
+            <p class="section-deck">10 case studies from the paper, one per application. Each compares runs on the same or a closely related task, shows the paper's figure for it and names what separated the outcomes. The first is the case study of the main text; the others come from the appendix.</p>
+          </div>
+        </div>
+
+        <div class="osci-tabs-block" data-osci-tabs>
+          <div class="osci-tab-list osci-case-tabs" role="tablist" aria-label="Case study">
+            <button class="osci-tab is-active" type="button" role="tab" id="case-tab-chemistry" aria-controls="case-chemistry" aria-selected="true" tabindex="0">
+              <span>Chemistry &middot; PDF viewer + terminal</span>
+              <strong>Checks That Share One Assumption</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-ciao" aria-controls="case-ciao" aria-selected="false" tabindex="-1">
+              <span>Physics &middot; CIAO + DS9</span>
+              <strong>Where the Number Comes From</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-ansys" aria-controls="case-ansys" aria-selected="false" tabindex="-1">
+              <span>Physics &middot; ANSYS Fluent</span>
+              <strong>A Zero-Valued Observable</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-openfoam" aria-controls="case-openfoam" aria-selected="false" tabindex="-1">
+              <span>Physics &middot; OpenFOAM</span>
+              <strong>Correct Physics, Lost Digits</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-qupath" aria-controls="case-qupath" aria-selected="false" tabindex="-1">
+              <span>Medicine &middot; QuPath</span>
+              <strong>Install Through the Application</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-statistics" aria-controls="case-statistics" aria-selected="false" tabindex="-1">
+              <span>Statistics &middot; SAS Studio / R</span>
+              <strong>Interface Overhead and Task Completion</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-mnova" aria-controls="case-mnova" aria-selected="false" tabindex="-1">
+              <span>Biology &middot; Mnova</span>
+              <strong>Clicks in the Wrong Coordinate Frame</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-eeg" aria-controls="case-eeg" aria-selected="false" tabindex="-1">
+              <span>Biology &middot; EEGLAB</span>
+              <strong>Trial Alignment and an Event-Pairing Audit</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-qgis" aria-controls="case-qgis" aria-selected="false" tabindex="-1">
+              <span>Geographic information &middot; QGIS</span>
+              <strong>Finished-Looking Maps, Incomplete Coverage</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="case-tab-praat" aria-controls="case-praat" aria-selected="false" tabindex="-1">
+              <span>Linguistics &middot; Praat</span>
+              <strong>Acoustic Landmark versus Interface Control</strong>
+            </button>
+          </div>
+          <article class="osci-case" id="case-chemistry" role="tabpanel" aria-labelledby="case-tab-chemistry">
+            <header class="osci-case-head">
+              <p class="osci-kicker">Chemistry &middot; Medicinal and natural-product chemistry &middot; PDF/image viewer + terminal (pdftotext, RDKit, Open Babel)</p>
+              <h3>Checks That Share One Assumption</h3>
+              <p class="osci-case-meta"><span>Tasks</span>Lenacapavir SAR table extraction; Archangiumide structure reconstruction <em>&middot; Main text</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Lenacapavir SAR: 17/17 rows correct, score 1.0, 70 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Archangiumide (unreported run; the scored run reached 1.0 in 43 steps): stereochemistry and InChIKey wrong, graded 0.25, 68 steps</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/chemistry_opus5.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/chemistry_opus5.png" width="2000" height="1147" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with raw trajectory frames: the successful Lenacapavir SAR extraction (locate table, render and inspect, decompose, orthogonal checks, 17/17 correct) and a failed, unreported Archangiumide reconstruction (complex drawing, repeated crops, manual reconstruction, self-consistency only, wrong stereochemistry).">
+              </a>
+              <figcaption>Contrasting Claude Opus 5 chemistry workflows with representative raw trajectory frames beside each workflow diagram. (a) and (b): the successful Lenacapavir run moves from source-table localization to focused stereochemical inspection and final validation of the complete 17-row CSV. (c) and (d): a failed, unreported Archangiumide run (the scored run reached 1.0) converts coordinate-guided reconstruction into a chemically valid, internally consistent structure, yet its own round-trip check still reveals a stereochemical mismatch. The decisive difference is independent source-grounded validation rather than trajectory length or the number of checks.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>Two Claude Opus 5 chemistry runs with nearly identical horizons end with opposite outcomes. On the Lenacapavir SAR task the run located Table 2 with pdftotext, rendered the page at 200–1200 dpi, separated the shared scaffold from the 17 variable R¹ substituents, and before writing the CSV cross-checked the assay column and footnotes, parsed every SMILES with RDKit and verified the intended CIP assignments: all 17 rows were correct (score 1.0 after 70 steps). On an unreported Archangiumide run (the scored run reached 1.0 in 43 steps) it spent most of 68 steps on enlarged crops, coordinate grids and hand-mapped coordinates, then validated its own hypothesis by round-tripping the SMILES through CML/Open Babel and recomputing the formula and InChIKey; the graph and formula were correct but the stereochemistry and InChIKey were wrong (graded 0.25), because every downstream conversion reproduced the same inverted stereocenter.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Long trajectories and many validation actions are insufficient when all checks share one latent assumption; orthogonal validation against the source, not self-consistency, separates the two runs.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-ciao" role="tabpanel" aria-labelledby="case-tab-ciao" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Physics &middot; X-ray astronomy &middot; CIAO + SAOImage DS9</p>
+              <h3>Where the Number Comes From</h3>
+              <p class="osci-case-meta"><span>Task</span>Background-subtracted net counts (netcounts) <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Reads NET_COUNTS from the output file, score 1.0, 9 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 terra</span><span class="osci-case-run-label">Enters 1427 − BG_ERR = 1410.7212, score 0.0, 44 steps</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/ciao_astra_terra.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/ciao_astra_terra.png" width="2000" height="1038" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with DS9, terminal and spreadsheet frames: GPT-6 Astra reads NET_COUNTS 1424.9204178903 from the output file; GPT-5.6 terra enters 1410.7212 from the visible COUNTS and BG_ERR rows.">
+              </a>
+              <figcaption>Contrasting GPT-6 Astra and GPT-5.6 terra workflows on netcounts, with representative raw trajectory frames beside each workflow diagram. (a) and (b): the successful run reads its regions back from DS9. It then reads NET_COUNTS from the output file named at the bottom of the Net Counts window (green boxes) and writes 1424.9204178903. (c) and (d): the failed run sees the same window with the NET_COUNTS row scrolled out of view. It enters 1427 − BG_ERR = 1410.7212 (red boxes) and later cites its own entry as the correct value. The decisive difference is the origin of the reported number, not the setup, the route, or the trajectory length. Host names in the terminal prompts are masked.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>Both runs define the same two regions, tag the annulus as background and see the same DS9 Net Counts window, in which the NET_COUNTS row is scrolled out of view. GPT-6 Astra reads its regions back with xpaget, reads NET_COUNTS from the FITS table that the analysis wrote (1424.9204178903), writes it to the workbook and asserts the stored value (score 1.0 after 9 steps). GPT-5.6 terra types 1410.7212, which is 1427 minus BG_ERR, the 1σ uncertainty of the background rather than the area-scaled background of 2.08 counts, and later validates the saved cell against itself; the answer is 14.2 counts from the reference against a tolerance of 1.5 (score 0.0 after 44 steps).</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>A number read from a GUI result window is not sufficient evidence until its definition has been checked; agents should trace each reported number to the tool's full-precision output before committing it.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-ansys" role="tabpanel" aria-labelledby="case-tab-ansys" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Physics &middot; Computational fluid dynamics &middot; ANSYS Fluent</p>
+              <h3>A Zero-Valued Observable</h3>
+              <p class="osci-case-meta"><span>Task</span>Drag adjoint of a cylinder at Re = 40 <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/moonshot.svg" alt="" aria-hidden="true" width="16" height="16">Kimi K3</span><span class="osci-case-run-label">Selects the wall after reading 0 N; adjoint converges at iteration 27, score 1.0, 86 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 terra</span><span class="osci-case-run-label">Keeps the unselected zone; zero-source adjoint stops at iteration 1, score 0.33, 100 steps</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/ansys_kimi_terra.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/ansys_kimi_terra.png" width="2000" height="1156" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with Fluent dialog and console frames: Kimi K3 reads 0 N, selects the wall zone and gets 1271.7444 N and 27 adjoint iterations; GPT-5.6 terra keeps the unselected zone and its adjoint stops at iteration 1.">
+              </a>
+              <figcaption>Contrasting two trajectories on the adjoint task FT-008a, with raw frames from each run to the right of its workflow diagram. (a) and (b): Kimi K3 evaluates its drag observable, reads 0 N, selects the wall zone it had left unselected, re-evaluates to 1271.7444 N, and runs the adjoint to convergence at iteration 27 (score 1.0, 86 steps). (c) and (d): GPT-5.6 terra reaches the same dialog with the same 0 N reading, concludes that the observable is correctly configured, obtains 1271.7444 N from the stored drag report without reconciling the two values, and runs a zero-source adjoint that stops at iteration 1 (score 0.33, 100 steps). The decisive difference is whether an implausible value may overrule the agent's reading of its setup, not the trajectory length or the number of checks.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>FT-008a asks for the drag on a cylinder at Re = 40 and for the number of iterations the drag adjoint needs to converge (27). Kimi K3 and GPT-5.6 terra both create the force observable without selecting the wall zone and reach the same screen: the observable dialog with wall unselected above a console line reading “Observable Value [N]: 0”. Kimi K3 lets that reading overturn its belief within one step, selects the wall, re-evaluates to 1271.7444 N and runs the adjoint to convergence at iteration 27 (score 1.0, 86 steps). GPT-5.6 terra calls 0 N “not a credible total cylinder drag” yet concludes that the observable is correctly configured, starts the adjoint without reconciling the two drag values, and reports 1 iteration against the reference 27 (score 0.33, 100 steps).</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>A check helps only if its result may overrule the agent's reading of its own setup: a physically impossible value, such as zero drag on a bluff body, is evidence against the setup.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-openfoam" role="tabpanel" aria-labelledby="case-tab-openfoam" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Physics &middot; Computational fluid dynamics &middot; OpenFOAM (terminal, foamToVTK)</p>
+              <h3>Correct Physics, Lost Digits</h3>
+              <p class="osci-case-meta"><span>Tasks</span>Flat-plate boundary layer, wall-resolved k–ω SST; Turbulent plane channel, wall-resolved k–ω SST <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 sol</span><span class="osci-case-run-label">Rejects Float32 VTK arrays, exports 12-digit native fields, 4/4 gates, score 1.0, 35 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 sol</span><span class="osci-case-run-label">Exports 6-digit VTK arrays, declares DONE with 59 steps unused, score 0.125, 41 steps</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/openfoam_sol.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/openfoam_sol.png" width="2000" height="1154" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with terminal frames: the flat-plate run rejects Float32 arrays and exports 12-digit native fields (EXPORT_OK, 4/4 gates); the plane-channel run exports 6-digit arrays and declares DONE (score 0.125).">
+              </a>
+              <figcaption>Contrasting GPT-5.6 sol OpenFOAM workflows, with representative raw terminal frames beside each workflow diagram. (a) and (b): the successful flat-plate run (OF-012) inspects the array declarations in its VTK (.vtu) output, rejects the Float32 arrays as short of full precision (step 33), reads the 12-digit native field files (step 34), and checks row counts and physical bounds before EXPORT_OK (score 1 after 35 steps). (c) and (d): the failed plane-channel run (OF-004) sees the same kind of declaration (step 37), builds its CSV files from 6-digit ASCII VTK arrays and checks their line counts, array lengths, and header (step 38), and declares DONE although its own volume-weighted bulk velocity differs from U_b in the 8th significant figure (step 41; score 0.125 after 41 steps). The decisive difference is validation of the delivered precision against the stated requirement, not the correctness of the solve or the number of checks. Host names in the terminal prompts are masked.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>Two GPT-5.6 sol runs on wall-resolved k–ω SST tasks both computed the correct converged solution, and both statements require at least 8 printed significant digits in every value. On the flat-plate task (OF-012) the run inspected the array declarations of its VTK output, rejected the Float32 arrays as insufficient for full precision, parsed the 12-digit native fields instead, and passed all four gates (score 1.0 after 35 steps). On the plane-channel task (OF-004) it built its CSV files from foamToVTK -ascii arrays printed with 6 digits, checked line counts, array lengths and the header, and declared DONE with 59 steps unused although its own bulk velocity differed from U_b in the 8th significant figure (score 0.125 after 41 steps).</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>A correct solve and several checks are insufficient when no check is held against the tolerance it should test; agents should compare the delivered numbers, not only the file shapes, with the stated precision.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-qupath" role="tabpanel" aria-labelledby="case-tab-qupath" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Medicine &middot; Digital pathology &middot; QuPath</p>
+              <h3>Install Through the Application</h3>
+              <p class="osci-case-meta"><span>Task</span>Register an attention map onto a reference slide (needs the Image Alignment extension) <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Installs via QuPath, confirms the menu entry, score 1.0, 31 steps, 2,568 output tokens</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Copies the jar into a guessed directory, 6 relaunches, VOID at the 100-step cap, 26,879 output tokens</span></li>
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Fable 5.1</span><span class="osci-case-run-label">Same shell-copy strategy first, then QuPath's own settings and extension manager; score 1.0 at step 84</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/qupath_astra_opus.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/qupath_astra_opus.png" width="2000" height="1304" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with QuPath desktop frames: GPT-6 Astra installs the extension through QuPath and exports the aligned image (31 steps, score 1.0); Claude Opus 5 copies the jar into a guessed directory and the Analyze menu stays unchanged (100 steps, VOID).">
+              </a>
+              <figcaption>Contrasting workflows on QP_004_T1 (register an attention map onto a reference slide; requires installing the Interactive Image Alignment extension). Top: GPT-6 Astra installs through the application, confirms the menu entry exists, applies the affine transform, and switches to the command finder when menus stall — 31 steps, score 1.0. Bottom: Claude Opus 5 copies the jar into a guessed directory from the shell and relaunches QuPath six times. Panels (c2) and (c3) show the same empty Analyze menu at step 19 and step 98: the disconfirming evidence was available 81 steps before the budget ran out. The run is scored VOID. The decisive difference is verifying the precondition through the interface that owns it, not trajectory length or effort. The figure is reproduced from the paper; its panel (c) counts nine relaunches and says Opus never opens Analyze, while the released trajectory shows six relaunches and several visits to the Analyze menu.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>On QP_004_T1 the Interactive Image Alignment extension must first be installed into QuPath, and only GPT-6 Astra and Claude Fable 5.1 solve the task. GPT-6 Astra hands the downloaded jar to QuPath itself, confirms the new entry in the Analyze menu before doing any science, applies the six affine values and switches to the command finder when a submenu stalls (score 1.0 after 31 steps and 2,568 output tokens). Claude Opus 5 copies the jar into a guessed directory from the shell, relaunches QuPath six times, and never lets the empty Analyze menu it saw at step 19, and again at step 98, overturn its belief; it is scored VOID at the 100-step cap after 26,879 output tokens. Claude Fable 5.1 is the middle case: after eighteen steps of the same shell-copy strategy it types the path into QuPath's own user-directory setting (step 19), later copies the jar into the folder QuPath's extension manager reports, and finishes at step 84.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Agents should verify a prerequisite through the interface that owns it before spending budget on the work that depends on it, and treat a negative check as disconfirming evidence rather than a cue to retry.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-statistics" role="tabpanel" aria-labelledby="case-tab-statistics" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Statistics &middot; Biostatistics &middot; SAS Studio / R</p>
+              <h3>Interface Overhead and Task Completion</h3>
+              <p class="osci-case-meta"><span>Task</span>Reusable group-test routine for two growth-study files <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Leaves SAS Studio for local R at step 7, score 1.000, 12 steps, 2.8 minutes</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/moonshot.svg" alt="" aria-hidden="true" width="16" height="16">Kimi K3</span><span class="osci-case-run-label">Correct Wilcoxon output in SAS Studio, no file delivered, score 0.080, 85 steps, 73 minutes</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/statistics_route_outcomes.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/statistics_route_outcomes.png" width="2000" height="732" loading="lazy" decoding="async" alt="Three strip plots of score, steps used and input tokens per step for 214 shell-mode runs, 10 domain-application runs and 16 GUI-text-editor runs on the statistics tasks.">
+              </a>
+              <figcaption>Outcomes and costs by application type across the statistics runs. Each point represents one run, and the horizontal marker shows the median. Steps and tokens use logarithmic axes. Using SAS Studio or RStudio is associated with more steps but no detectable score difference. Using a GUI text editor is associated with both more steps and lower scores. The two runs that used both a domain application and an editor are assigned to the domain-application group.</figcaption>
+            </figure>
+            <p class="osci-case-note">The paper's screenshot panels for this case (SAS Studio in a browser session) are not reproduced; the statistics section's outcome chart is shown instead.</p>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>stat_group_tests asks for one reusable, parameterized routine that selects the test from the study design and sample size, applies unchanged to two growth-study files and reports each statistic to ten significant figures; SAS and R are both permitted. GPT-6 Astra signed in to SAS Studio, found it still loading at step 4, inspected the inputs locally and switched to shell mode at step 7, scoring 1.000 in 12 steps and 2.8 minutes. Kimi K3 uploaded both files to SAS Studio, wrote and submitted a SAS macro and obtained the correct Wilcoxon statistics at step 82, but the run ended during a repair after all 85 steps, 73 minutes and 11.64 M input tokens, with no output file (score 0.080).</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Statistical correctness and successful delivery are distinct capabilities: interface overhead can turn correct work into a failed outcome, so tasks meant to measure application operation should make that application necessary.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-mnova" role="tabpanel" aria-labelledby="case-tab-mnova" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Biology &middot; NMR spectroscopy &middot; Mnova (MestReNova)</p>
+              <h3>Clicks in the Wrong Coordinate Frame</h3>
+              <p class="osci-case-meta"><span>Task</span>Assign the ¹H spectrum of 6-bromoindole from the raw FID <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Licenses Mnova through its dialogs and reads the spectrum, score 0.75, 25 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 luna</span><span class="osci-case-run-label">Clicks one point beside the wizard 39 times, VOID at the 100-step cap</span></li>
+                <li><span class="osci-badge is-mid">In between</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 sol</span><span class="osci-case-run-label">States the scaling mismatch at step 65, later falls back and ends on the wizard, VOID at the 100-step cap</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/mnova_opus_luna.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/mnova_opus_luna.png" width="2000" height="1305" loading="lazy" decoding="async" alt="Two five-stage workflow diagrams with Mnova frames: Claude Opus 5 installs and licenses Mnova and runs the multiplet analysis (25 steps, score 0.75); GPT-5.6 luna clicks beside the Registration Wizard's Install button until the budget runs out (100 steps, VOID).">
+              </a>
+              <figcaption>Contrasting workflows on nmr_6bromoindole_assignment (assign the ¹H spectrum of 6-bromoindole from the raw FID in Mnova; requires accepting Mnova's license agreement, choosing Install in its Registration Wizard and importing a license file). Top: Claude Opus 5 installs Mnova, clicks Accept and Install where they are, and Mnova itself confirms the license (a2) before the run analyzes the spectrum (a3) — 25 steps, score 0.75. Bottom: GPT-5.6 luna clicks one point beside the Registration Wizard 39 times; scaled by 1.41, the point is the Install button (red cross: the click; green circle: Install). Panels (c1) and (c2) show the same unchanged wizard at step 50 and step 96; the run turned to the keyboard only at step 97, three steps before the budget ran out. The run is scored VOID. The decisive difference is whether the clicks land in the screen's coordinate frame, not knowledge of NMR. Institution names in the license file names and the license host ID are masked.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>Mnova opens the Bruker FID only after the agent accepts its license agreement, chooses Install in the Registration Wizard and imports a license file; eight of the twelve models end VOID, and only four deliver an assignment. Claude Opus 5 clicks each button where it is, Mnova confirms the license, and the run replaces its recalled answer with the automatic multiplet analysis (score 0.75 after 25 steps and 5,575 output tokens). GPT-5.6 luna clicks within two pixels of one point beside the wizard 39 times in steps 50–97; scaled by 1.41, the ratio between the 1920×1080 screen and the 1365×768 image the model sees, that point is exactly the Install button. It reaches Install from the keyboard only at step 97 and is scored VOID at the 100-step cap after 10,282 output tokens.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>The failure is at the interaction layer, not in NMR: what separates the runs is whether clicks land in the screen's coordinate frame and whether an unchanged dialog is allowed to change the agent's coordinates.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-eeg" role="tabpanel" aria-labelledby="case-tab-eeg" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Biology &middot; EEG &middot; EEGLAB (command line)</p>
+              <h3>Trial Alignment and an Event-Pairing Audit</h3>
+              <p class="osci-case-meta"><span>Tasks</span>RT–P3 trial-aligned inference; Forensic event-pairing audit <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-mid">Partial credit</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">RT–P3: trial accounting and effect estimates agree with the reference, score 0.945</span></li>
+                <li><span class="osci-badge is-mid">Partial credit</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Audit: correct mapping, but 6 surplus assignments reported where 12 rows are affected, score 0.77</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/eeg_opus5.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/eeg_opus5.png" width="2000" height="980" loading="lazy" decoding="async" alt="EEG case figure: epoch and analysis windows; mean Pz amplitudes for 36 fast and 36 slow trials (difference 0.93 microvolts); event timing showing invalid pairings; six shared response events affecting 12 rows versus 6 reported; terminal output on the right.">
+              </a>
+              <figcaption>EEG analysis and event-pairing audit by Claude Opus 5 on two tasks. (a) Epoch and analysis windows for trial-aligned RT–P3 inference. (b) Mean Pz amplitudes over 300–500 ms for 36 fast and 36 slow trials; horizontal bars indicate group means. (c) Actual event timing for the first four stimuli in the forensic task. The candidate crosses a trial boundary and reuses a response preceding a later stimulus; the corrected mapping leaves unmatched stimuli unanswered. (d) Six shared response events affect 12 stimulus rows, whereas the agent reports six surplus assignments. Right: original terminal observations with relevant output highlighted.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>On the RT–P3 task, Claude Opus 5 preserved the alignment of stimuli, responses and EEG epochs through preprocessing and artifact rejection, retained 72 clean responded trials split equally into fast and slow groups, and agreed with the reference on trial accounting and core effect estimates (slow–fast difference 0.93 µV, bootstrap 95% CI spanning zero). On a separate forensic task, the same model correctly reconstructed the stimulus–response mapping but incompletely described the candidate script's errors: six response events were each assigned to two stimuli, affecting 12 rows, and the model reported the six surplus assignments as the number of reused-response rows.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Reconstructing the right mapping is not the same as auditing it completely: the model counted six surplus assignments where twelve stimulus rows were affected.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-qgis" role="tabpanel" aria-labelledby="case-tab-qgis" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Geographic information &middot; Remote sensing &middot; QGIS</p>
+              <h3>Finished-Looking Maps, Incomplete Coverage</h3>
+              <p class="osci-case-meta"><span>Tasks</span>Building footprint digitization; Road centerline digitization <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Roads: one script, score 0.98, 4 steps</span></li>
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Roads: measures and repairs gaps, score 0.90, 88 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Fable 5.1</span><span class="osci-case-run-label">Roads: five segments, part of the network missing, score 0.76, 10 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Footprints: 10 of 12 buildings, including 6 sheds; misses the two smallest</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Footprints: mainly the large buildings, reported as complete</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Fable 5.1</span><span class="osci-case-run-label">Footprints: mainly the large buildings, reported as complete</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/qgis_deliveries.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/qgis_deliveries.png" width="2000" height="929" loading="lazy" decoding="async" alt="Aerial imagery with delivered geometries in yellow: building footprints (top row) and road centerlines (bottom row) for the input image, Claude Opus 5, Claude Fable 5.1 and GPT-6 Astra.">
+              </a>
+              <figcaption>Delivered geometries (yellow) on two digitization tasks. Columns from left to right: the input image, Claude Opus 5, Claude Fable 5.1, and GPT-6 Astra. Top row: building footprints (GEO_004). The scene contains 4 large buildings and 8 small sheds beside the parking lots, and only GPT-6 Astra digitizes most of the sheds. Bottom row: road centerlines (GEO_005). Claude Opus 5 and GPT-6 Astra cover the full network, and Claude Fable 5.1 leaves part of it out.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>On road-centerline digitization (GEO_005), GPT-6 Astra writes the network with one script in 4 steps and scores 0.98, Claude Opus 5 measures the road positions from the image and repairs gaps over 88 steps for 0.90, and Claude Fable 5.1 draws five correct segments in 10 steps, reports the task as complete and scores 0.76 because part of the network is missing. On building-footprint digitization (GEO_004) the scene contains 4 large buildings and 8 small sheds, and eight runs declare the task done after part of the work: seven of them digitize mainly the large buildings, while GPT-6 Astra digitizes 10 of the 12 buildings, including 6 sheds, and misses the two smallest. None of the nine runs that deliver footprints on GEO_004 checks whether all buildings are covered.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Trajectory length says little about method, and a check that the output exists and has the expected structure does not reveal a map that misses part of the scene.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-case" id="case-praat" role="tabpanel" aria-labelledby="case-tab-praat" hidden>
+            <header class="osci-case-head">
+              <p class="osci-kicker">Linguistics &middot; Phonetics &middot; Praat</p>
+              <h3>Acoustic Landmark versus Interface Control</h3>
+              <p class="osci-case-meta"><span>Task</span>Mark the release burst of a prevoiced word (tolerance 5 ms) <em>&middot; Appendix</em></p>
+              <ul class="osci-case-runs" aria-label="Runs compared in this case">
+                <li><span class="osci-badge is-pass">Success</span><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span><span class="osci-case-run-label">Rejects the transient, 3.1 ms after the reference, score 1.000, 9 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Opus 5</span><span class="osci-case-run-label">Precise control, wrong event: 5.5 ms before the reference, score 0.10, 41 steps</span></li>
+                <li><span class="osci-badge is-fail">Failure</span><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Sonnet 5</span><span class="osci-case-run-label">Right description, lost time axis: 51.7 ms late, score 0.10, 93 steps</span></li>
+              </ul>
+            </header>
+            <figure class="osci-case-figure">
+              <a class="osci-figure-link" href="static/images/cases/praat_release.png" target="_blank" rel="noopener" title="Open the full-size figure">
+                <img src="static/images/cases/praat_release.png" width="2000" height="1454" loading="lazy" decoding="async" alt="Three rows, each pairing a Praat editor view with an enlarged waveform: GPT-6 Astra's boundary just after the reference release, Claude Opus 5's boundary on the earlier transient, and Claude Sonnet 5's view that starts after the release.">
+              </a>
+              <figcaption>Three runs locating the release of bun in the neg task. Each row pairs the run's Praat view with an enlargement of the boxed waveform region. Where visible, the black line marks the reference release, the red line marks the inserted boundary, and the gray triangle marks the earlier transient within the prevoicing. (a) GPT-6 Astra rejects the transient and places the boundary 3.1 ms after the reference, within tolerance. Its score is 1.000. (b) Claude Opus 5 inspects a 16 ms window through the Select dialog but marks the transient 5.5 ms before the reference. Its score is 0.10. (c) The window viewed by Claude Sonnet 5 begins 6 ms after the reference. The run treats the edge of its pink selection as the release and places the boundary 51.7 ms late. Its score is 0.10.</figcaption>
+            </figure>
+            <div class="osci-case-text">
+              <h4>Summary</h4>
+              <p>The task asks for the release burst of a prevoiced word within 5 ms, and a brief broadband transient 5.5 ms before the true release is a distractor. GPT-6 Astra rejects the transient after a single zoom and places the boundary 3.1 ms after the reference, finishing in 9 steps (score 1.000). Claude Opus 5 controls the time axis precisely, opening Praat's Select dialog 11 times and inspecting windows as narrow as 10 ms, but marks the transient 5.5 ms before the reference (score 0.10). Claude Sonnet 5 describes the target correctly but issues 63 zoom commands across 93 steps, loses the release after pressing Praat's in button, and places the boundary at the edge of its own selection, 51.7 ms late (score 0.10).</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Placing a boundary through a graphical editor takes two separable skills, identifying the intended acoustic landmark and controlling the interface precisely enough to mark it; GPT-6 Astra showed both, Claude Opus 5 only the second and Claude Sonnet 5 only the first.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section osci-stories-section osci-pairs-section" id="side-by-side">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Failures and Successes, Side by Side</h2>
+            <p class="section-deck">Five tasks, five applications. For each, one run that earned full credit and one that did not, from the same task package, the same starting state and the same grader. Frames are the screenshots the model saw at that step; captions quote the model's own plan where it wrote one.</p>
+          </div>
+        </div>
+
+        <div class="osci-tabs-block" data-osci-tabs>
+          <div class="osci-tab-list osci-pair-tabs" role="tablist" aria-label="Task pair">
+            <button class="osci-tab is-active" type="button" role="tab" id="pair-tab-qupath-ellipse" aria-controls="pair-qupath-ellipse" aria-selected="true" tabindex="0">
+              <span>QuPath</span>
+              <strong>One intermediate-size nucleus ellipse inside ROI-A</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="pair-tab-fluent-channel" aria-controls="pair-fluent-channel" aria-selected="false" tabindex="-1">
+              <span>ANSYS</span>
+              <strong>Laminar channel flow: whole-wall shear and peak x-velocity</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="pair-tab-qgis-aircraft" aria-controls="pair-qgis-aircraft" aria-selected="false" tabindex="-1">
+              <span>QGIS</span>
+              <strong>Mark every aircraft with exactly one point</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="pair-tab-praat-vot" aria-controls="pair-praat-vot" aria-selected="false" tabindex="-1">
+              <span>Praat</span>
+              <strong>Word-initial voice onset time for bat, Pat, bit and pit</strong>
+            </button>
+            <button class="osci-tab" type="button" role="tab" id="pair-tab-ds9-lightcurve" aria-controls="pair-ds9-lightcurve" aria-selected="false" tabindex="-1">
+              <span>CIAO+DS9</span>
+              <strong>Background-subtracted light curve of a Chandra source</strong>
+            </button>
+          </div>
+          <article class="osci-pair" id="pair-qupath-ellipse" role="tabpanel" aria-labelledby="pair-tab-qupath-ellipse">
+            <header class="osci-pair-head">
+              <p class="osci-kicker">QuPath 0.5.1 &middot; Medicine &middot; Digital pathology &middot; Task QP_001_T1-2</p>
+              <h3>One intermediate-size nucleus ellipse inside ROI-A</h3>
+              <p class="osci-pair-task"><span>Task</span>A breast-resection whole-slide image is open in a QuPath project that has one rectangular annotation, ROI-A. The agent inspects the clearly separable nuclei in ROI-A and draws exactly one roughly circular ellipse of intermediate nuclear size, completely inside ROI-A. It then classifies the ellipse as “Medium Cell Size”, leaves ROI-A unchanged and saves the project. The grader reads the saved project, checks that ROI-A is unchanged and that there is exactly one ellipse, then checks the ellipse's class, shape, position and diameter.</p>
+            </header>
+            <div class="osci-pair-runs">
+            <section class="osci-run is-success" aria-label="Successful run: Claude Fable 5.1">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Successful run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Fable 5.1</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-pass">PASS</span><span class="osci-badge is-score">Score 1.00</span></p>
+                <p class="osci-run-meta">27 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 96%</p>
+                <p class="osci-run-result">One 19 × 19 px ellipse, classified Medium Cell Size, inside ROI-A (allowed diameter 10.2–27.0 px).</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="Claude Fable 5.1 run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step008.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step008.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 8"></a>
+                    <figcaption><span class="osci-step-no">Step 8 <em>&middot; 1 / 7</em></span>Fable first inspects the project files from a terminal and launches QuPath from it (steps 1–4). The slide is now open at 0.02×, with ROI-A labeled in the middle of the tumor.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step011.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step011.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 11"></a>
+                    <figcaption><span class="osci-step-no">Step 11 <em>&middot; 2 / 7</em></span>Scrolling in over ROI-A overshoots to 64× and the view dissolves into pixel blocks. Fable notes “Zoomed too far in (64x)” and backs out. After another coarse scroll (step 12) and a typed magnification that does not apply (step 13), it zooms one scroll notch at a time (steps 14–16).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step017.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step017.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 17"></a>
+                    <figcaption><span class="osci-step-no">Step 17 <em>&middot; 3 / 7</em></span>At 2.65×, all of ROI-A (the yellow rectangle, which Fable read off the panel as about 110 µm square) is in view and single nuclei are visible. Fable selects the ellipse tool and drags a small circle inside it.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step018.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step018.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 18"></a>
+                    <figcaption><span class="osci-step-no">Step 18 <em>&middot; 4 / 7</em></span>The new ellipse sits inside ROI-A, and the panel reads ROI Ellipse with an area of 59.14 µm². Fable judges its ≈8.7 µm diameter to be “intermediate between small and large nuclei”.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step022.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step022.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 22"></a>
+                    <figcaption><span class="osci-step-no">Step 22 <em>&middot; 5 / 7</em></span>The class list has no “Medium Cell Size” entry yet, so Fable opens Add class from the list's context menu and types the exact name.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step024.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step024.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 24"></a>
+                    <figcaption><span class="osci-step-no">Step 24 <em>&middot; 6 / 7</em></span>After Set selected, the property panel shows Classification: Medium Cell Size, and the class list counts one object in the new class.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/success-step026.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/success-step026.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 26"></a>
+                    <figcaption><span class="osci-step-no">Step 26 <em>&middot; 7 / 7</em></span>Fable saves with Ctrl+S and again through File &gt; Save, then finishes after 27 steps. The grader measures a 19 × 19 px circle, within the allowed 10.2–27.0 px.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Short plans before most actions (steps 21, 22 and 26 are code only).</p>
+            </section>
+            <section class="osci-run is-failure" aria-label="Failed run: GPT-5.6 luna">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Failed run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 luna</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-fail">FAIL · wrong content</span><span class="osci-badge is-score">Score 0.00</span></p>
+                <p class="osci-run-meta">37 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 72%</p>
+                <p class="osci-run-result">Grader: “'Medium Cell Size' is not assigned to an EllipseROI”.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-5.6 luna run, 6 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step007.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step007.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 7"></a>
+                    <figcaption><span class="osci-step-no">Step 7 <em>&middot; 1 / 6</em></span>Luna launches QuPath from a terminal and opens the project through the file chooser (steps 1–6). The slide appears at 0.02×, with ROI-A labeled in the center.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step009.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step009.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 9"></a>
+                    <figcaption><span class="osci-step-no">Step 9 <em>&middot; 2 / 6</em></span>After one scroll action (four wheel clicks, now 0.08×), Luna picks the ellipse tool and drags out a 25 × 25-pixel box on screen. At this magnification that becomes a 311 × 311-pixel ellipse on the slide (yellow, upper left), far larger than a nucleus, and it lies well away from the ROI-A label.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step012.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step012.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 12"></a>
+                    <figcaption><span class="osci-step-no">Step 12 <em>&middot; 3 / 6</em></span>Luna right-clicks the annotation, chooses Set properties and types “Medium Cell Size” into the Name field. The panel behind shows the ellipse: 15,843.87 µm², centroid (10,586.85, 8,823.56) µm. That is larger than ROI-A itself (12,013.60 µm², centroid 11,663.51, 9,372.73 µm in Fable's run) and about 1.2 mm from it.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step013.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step013.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 13"></a>
+                    <figcaption><span class="osci-step-no">Step 13 <em>&middot; 4 / 6</em></span>The text now shows as the annotation's name, in the list and on the slide. The Classification row is still empty, and the class list has no “Medium Cell Size” entry.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step019.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step019.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 19"></a>
+                    <figcaption><span class="osci-step-no">Step 19 <em>&middot; 5 / 6</em></span>After File &gt; Save As (step 18), a “Save changes to breast_resection_QP-001.ome.tif?” prompt appears. Luna clicks Cancel and presses Ctrl+S instead, then reopens the project and the image (steps 20–27), but the object is unchanged: it has a name and no class.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qupath-ellipse/failure-step037.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qupath-ellipse/failure-step037.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 37"></a>
+                    <figcaption><span class="osci-step-no">Step 37 <em>&middot; 6 / 6</em></span>The final screen. Luna has pressed Set selected six times (steps 13, 14, 31, 33, 34, 36) with no matching class in the list, and the Classification row is still empty. It stops after 37 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 6</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Two short code comments (steps 7–8); every other response is code only, so these captions describe the logged actions and the screen.</p>
+            </section>
+            </div>
+            <div class="osci-case-text osci-pair-analysis">
+              <h4>Analysis</h4>
+              <p>Both runs reach the same QuPath panels and both type the string “Medium Cell Size”; the difference lies in where that string ends up and at what scale the ellipse is drawn. Fable zoomed until all of ROI-A was in view (2.65×) and drew a nucleus-sized 19 × 19-px circle inside it. It created the class with Add class, applied it with Set selected, and confirmed the Classification row before saving. Luna drew at 0.08×, where a 25-pixel screen drag produced a 311 × 311-px ellipse (15,844 µm²), larger than ROI-A (240 × 240 px) and about 1.2 mm away from it. It then wrote the label into the annotation's Name field, never created the class, and kept pressing Set selected with nothing to apply. The grader finds ROI-A unchanged and exactly one ellipse, then stops at the class check: no ellipse carries the classification, so size and position are never scored.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>In QuPath a name is not a classification, and a 25-pixel drag at 0.08× is not nucleus-sized. The successful run worked at the scale of the object and read back the exact field the grader checks.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-pair" id="pair-fluent-channel" role="tabpanel" aria-labelledby="pair-tab-fluent-channel" hidden>
+            <header class="osci-pair-head">
+              <p class="osci-kicker">ANSYS Fluent 2026 R1 &middot; Physics &middot; Computational fluid dynamics &middot; Task FV-001a</p>
+              <h3>Laminar channel flow: whole-wall shear and peak x-velocity</h3>
+              <p class="osci-pair-task"><span>Task</span>Set up and solve steady laminar flow between two parallel plates (Re = 100) in ANSYS Fluent from a supplied ten-cell-high 2-D mesh. The specification is serial, double precision, laminar, ρ = 1 kg/m³ and μ = 0.003 Pa·s, with a uniform 1 m/s inlet, a 0 Pa outlet, the coupled solver and absolute residual criteria of 1e-10. The reference run stops itself at iteration 104. Two numbers go into report.json: the area-weighted average x wall shear over the whole wall (5/9 of the score) and the maximum x-velocity in the fluid (4/9). Each must be within 0.1% of the reference.</p>
+            </header>
+            <div class="osci-pair-runs">
+            <section class="osci-run is-success" aria-label="Successful run: GPT-5.6 sol">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Successful run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 sol</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-pass">PASS</span><span class="osci-badge is-score">Score 1.00</span></p>
+                <p class="osci-run-meta">75 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 95%</p>
+                <p class="osci-run-result">tau_wall_x = 0.05894787 Pa and u_max = 1.4708195 m/s, both within 2e-8 relative of the reference.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-5.6 sol run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step003.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step003.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 3"></a>
+                    <figcaption><span class="osci-step-no">Step 3 <em>&middot; 1 / 7</em></span>The Fluent Launcher shows one solver process and 3D selected. Sol switches to 2D, ticks Double Precision and starts the solver.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step017.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step017.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 17"></a>
+                    <figcaption><span class="osci-step-no">Step 17 <em>&middot; 2 / 7</em></span>The mesh has loaded and the Viscous Model dialog (opened at step 16) shows SST k-omega. Sol selects Laminar and clicks OK.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step022.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step022.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 22"></a>
+                    <figcaption><span class="osci-step-no">Step 22 <em>&middot; 3 / 7</em></span>The stock fluid is air (density 1.225, viscosity 1.7894e-05). Sol enters 1 kg/m³ and 0.003 Pa·s and applies. It later reopens the material and boundary-condition editors (steps 29–43) to confirm every value.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step051.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step051.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 51"></a>
+                    <figcaption><span class="osci-step-no">Step 51 <em>&middot; 4 / 7</em></span>The Residual Monitors still hold the default absolute criterion of 0.001 for continuity, x-velocity and y-velocity. Sol sets all three to 1e-10.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step068.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step068.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 68"></a>
+                    <figcaption><span class="osci-step-no">Step 68 <em>&middot; 5 / 7</em></span>After a standard initialization (p = 0, u = 1, v = 0) and a request for 2000 iterations, the solve stops on its own. The console reads “104 solution is converged” with continuity at 9.7688e-11, the stop the task statement predicts.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step071.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step071.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 71"></a>
+                    <figcaption><span class="osci-step-no">Step 71 <em>&middot; 6 / 7</em></span>The reports are run as console commands. The area-weighted average of X Wall Shear Stress over the whole wall prints 0.05894787 Pa, and the volume-maximum command for x-velocity follows.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/success-step075.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/success-step075.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 sol, screenshot before its action at step 75"></a>
+                    <figcaption><span class="osci-step-no">Step 75 <em>&middot; 7 / 7</em></span>report.json in Notepad with the printed digits (0.05894787 and the console Max of 1.4708195 for fff-1_surface_body). Getting there took three steps. Notepad first found no file (step 73). It then showed Sol's typed line followed by a copy without quotation marks (step 74), so Sol selected all, retyped the line and saved. Score 1.0 after 75 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>One-line plans as code comments until the reports; steps 68–74 are code only.</p>
+            </section>
+            <section class="osci-run is-failure" aria-label="Failed run: GPT-5.6 luna">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Failed run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 luna</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-fail">FAIL · wrong content</span><span class="osci-badge is-score">Score 0.00</span></p>
+                <p class="osci-run-meta">99 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 85%</p>
+                <p class="osci-run-result">tau_wall_x = 0.659303 Pa (reference 0.05895) and u_max = 1.6178159 m/s (reference 1.47082); both keys fail.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-5.6 luna run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step023.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step023.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 23"></a>
+                    <figcaption><span class="osci-step-no">Step 23 <em>&middot; 1 / 7</em></span>After several attempts (steps 12–22), the material editor shows the required density of 1 and viscosity of 0.003.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step042.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step042.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 42"></a>
+                    <figcaption><span class="osci-step-no">Step 42 <em>&middot; 2 / 7</em></span>Luna meant to set the convergence criteria (“Open the equations/residual controls”). It opens Solution Controls &gt; Equations instead, closes it and moves on. The 1e-10 criteria are never entered.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step050.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step050.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 50"></a>
+                    <figcaption><span class="osci-step-no">Step 50 <em>&middot; 3 / 7</em></span>Standard initialization with gauge pressure 0, x-velocity 1 and y-velocity 0, as specified.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step053.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step053.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 53"></a>
+                    <figcaption><span class="osci-step-no">Step 53 <em>&middot; 4 / 7</em></span>The solve ends after 40 iterations: “40 solution is converged”, with continuity at 9.8619e-04. The default 1e-3 criterion was still active, whereas the specified run needs 104 iterations to reach 1e-10.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step061.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step061.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 61"></a>
+                    <figcaption><span class="osci-step-no">Step 61 <em>&middot; 5 / 7</em></span>Surface Integrals, area-weighted average of X Wall Shear Stress on the wall: 0.659303 Pa, about 11 times the reference of 0.0589 Pa.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step069.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step069.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 69"></a>
+                    <figcaption><span class="osci-step-no">Step 69 <em>&middot; 6 / 7</em></span>Luna typed “x-velocity” into the field box and clicked the grayed-out Compute button four times with no cell zone selected (steps 64–67). Once it selects the zone (step 68), the console labels the result Velocity Magnitude, not x-velocity: a maximum of 16.178159 m/s in a channel fed at 1 m/s. Luna's next comment calls it the maximum x-velocity and copies both values into the report as they are.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/fluent-channel/failure-step099.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/fluent-channel/failure-step099.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 luna, screenshot before its action at step 99"></a>
+                    <figcaption><span class="osci-step-no">Step 99 <em>&middot; 7 / 7</em></span>Across steps 69–98, Luna issues 25 PowerShell and cmd write commands. The values swing between 16.178159 and 1.6178159 and between 0.659303 and 0.0659303, and the final file holds 0.659303 and 1.6178159. Luna also quits Fluent at steps 93–95, so nothing can be recomputed. Score 0 after 99 of 100 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Short code comments on most steps up to step 69, none afterwards.</p>
+            </section>
+            </div>
+            <div class="osci-case-text osci-pair-analysis">
+              <h4>Analysis</h4>
+              <p>Both runs set up the same case through the same Fluent panels and ask for the same two report types (Sol through console commands, Luna through the report dialogs). Sol set the three residual criteria to 1e-10. The solve then stopped exactly where the task said it would (iteration 104, continuity 9.77e-11), and its two reports matched the reference in every printed digit (within 2e-8, relative). Luna never reached the residual monitor, so its solve stopped at iteration 40 on the default 1e-3 criterion. That alone does not explain its numbers: Fluent reported 0.659 Pa and 16.18 m/s, both about 11 times the reference, in a channel fed at 1 m/s. No screenshot shows the inlet value after Luna retyped it (steps 32, 33 and 37). The console also labels the second number Velocity Magnitude, not x-velocity. Instead of revisiting the setup, Luna spent 30 steps (69–98) rewriting report.json and shifting decimal points, and it ended with both values wrong.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>A solver that says “converged” has not checked the answer. The successful run set the stopping criterion the task specified, and its solve stopped at the iteration the task predicted; the failed run treated a 16 m/s peak in a channel fed at 1 m/s as a formatting problem and moved on.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-pair" id="pair-qgis-aircraft" role="tabpanel" aria-labelledby="pair-tab-qgis-aircraft" hidden>
+            <header class="osci-pair-head">
+              <p class="osci-kicker">QGIS 3.44 &middot; Geoscience &middot; Remote sensing &middot; Task rareplanes-aircraft-point-annotation</p>
+              <h3>Mark every aircraft with exactly one point</h3>
+              <p class="osci-pair-task"><span>Task</span>An aerial image of an airfield is open in QGIS with an empty point layer, aircraft_points. The agent marks every fully visible aircraft with exactly one point, including parked or stored aircraft. It then uses QGIS to export the layer to a GeoPackage with one layer of 2-D points in EPSG:4326. The reference contains 15 aircraft. The run passes only if each aircraft carries exactly one point and there are no extra points.</p>
+            </header>
+            <div class="osci-pair-runs">
+            <section class="osci-run is-success" aria-label="Successful run: GPT-5.6 terra">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Successful run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 terra</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-pass">PASS</span><span class="osci-badge is-score">Score 1.00</span></p>
+                <p class="osci-run-meta">11 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 100%</p>
+                <p class="osci-run-result">15 points exported: 15 true positives, 0 false positives, 0 missed (F1 1.0).</p>
+                <p class="osci-run-note">The released task file lists 60 steps; these runs used the 100-step limit applied to all geoscience runs.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-5.6 terra run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step002.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step002.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 2"></a>
+                    <figcaption><span class="osci-step-no">Step 2 <em>&middot; 1 / 7</em></span>Editing is switched on (step 1). In one action Terra presses Ctrl+. (Add Point Feature) and clicks 15 times, once per aircraft, with every position read from this screenshot.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step003.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step003.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 3"></a>
+                    <figcaption><span class="osci-step-no">Step 3 <em>&middot; 2 / 7</em></span>All 15 aircraft now carry a yellow point, including the isolated one at the bottom. Terra toggles editing off.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step004.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step004.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 4"></a>
+                    <figcaption><span class="osci-step-no">Step 4 <em>&middot; 3 / 7</em></span>QGIS asks whether to save the edits to aircraft_points. Terra clicks Save, then presses the toolbar's “Export aircraft points” button (steps 4–5).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step008.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step008.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 8"></a>
+                    <figcaption><span class="osci-step-no">Step 8 <em>&middot; 4 / 7</em></span>Terra then takes the standard route: the layer's context menu, Export &gt; Save Features As…</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step009.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step009.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 9"></a>
+                    <figcaption><span class="osci-step-no">Step 9 <em>&middot; 5 / 7</em></span>The Save Vector Layer dialog already has GeoPackage format, layer name aircraft_points and CRS EPSG:4326 - WGS 84 filled in. Terra types the output path and presses OK.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step010.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step010.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 10"></a>
+                    <figcaption><span class="osci-step-no">Step 10 <em>&middot; 6 / 7</em></span>QGIS reports that the layer already exists in the target file; Terra chooses Overwrite File.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/success-step011.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/success-step011.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 11"></a>
+                    <figcaption><span class="osci-step-no">Step 11 <em>&middot; 7 / 7</em></span>The message bar confirms “Layer Exported: Successfully saved vector layer”. Terra stops after 11 steps; the grader matches all 15 points with no extras.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>None: the run logs code only, so these captions describe the logged actions and the screen.</p>
+            </section>
+            <section class="osci-run is-failure" aria-label="Failed run: Claude Sonnet 5">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Failed run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Sonnet 5</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-fail">FAIL · wrong content</span><span class="osci-badge is-score">Score 0.97</span></p>
+                <p class="osci-run-meta">39 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 95%</p>
+                <p class="osci-run-result">16 points exported: 15 true positives plus 1 extra point (F1 0.968; a pass needs an exact match).</p>
+                <p class="osci-run-note">Continuous F1, as in the results table; the task passes only at F1 = 1, so the run's verdict is FAIL (binary score 0).</p>
+                <p class="osci-run-note">The released task file lists 60 steps; these runs used the 100-step limit applied to all geoscience runs.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="Claude Sonnet 5 run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step002.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step002.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 2"></a>
+                    <figcaption><span class="osci-step-no">Step 2 <em>&middot; 1 / 7</em></span>Sonnet sees the whole scene: “I can count approximately 15 aircraft in this parking area.”</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step005.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step005.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 5"></a>
+                    <figcaption><span class="osci-step-no">Step 5 <em>&middot; 2 / 7</em></span>Sonnet's step-4 click, meant for the Add Point Feature tool, opened New Shapefile Layer instead. It cancels here, and makes the same slip again at step 21.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step019.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step019.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 19"></a>
+                    <figcaption><span class="osci-step-no">Step 19 <em>&middot; 3 / 7</em></span>Sonnet detours into the QGIS Python Console (steps 6–19), where typed commands run into syntax errors. A script eventually prints the raster's extent, its 512 × 512 size and its CRS, EPSG:4326. Sonnet then closes the console and returns to the GUI.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step025.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step025.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 25"></a>
+                    <figcaption><span class="osci-step-no">Step 25 <em>&middot; 4 / 7</em></span>Hovering over toolbar icons, Sonnet finds the “Add Point Feature (Ctrl+.)” tooltip, the tool Terra used by shortcut in its second step.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step030.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step030.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 30"></a>
+                    <figcaption><span class="osci-step-no">Step 30 <em>&middot; 5 / 7</em></span>Points go down in batches, with each click commented “Aircraft N”. This step's first click, at (1434, 550), repeats the click made at step 29 as “Aircraft 9”, now labeled “Aircraft 12”. Four more clicks follow, up to “Aircraft 16”.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step031.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step031.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 31"></a>
+                    <figcaption><span class="osci-step-no">Step 31 <em>&middot; 6 / 7</em></span>Every aircraft shows a point, and the duplicate is hidden underneath one of them. Sonnet concludes: “All 15 aircraft appear to now have points placed on them.”</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/qgis-aircraft/failure-step039.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/qgis-aircraft/failure-step039.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Sonnet 5, screenshot before its action at step 39"></a>
+                    <figcaption><span class="osci-step-no">Step 39 <em>&middot; 7 / 7</em></span>ogrinfo on the export reports Feature Count: 16. Sonnet reads this as “16 (matches the visible aircraft in the image)” and finishes after 39 steps. The grader finds 15 true positives and one false positive.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Plans and self-checks before every action.</p>
+            </section>
+            </div>
+            <div class="osci-case-text osci-pair-analysis">
+              <h4>Analysis</h4>
+              <p>Both runs find the same aircraft and export a valid EPSG:4326 GeoPackage from inside QGIS (Sonnet through the toolbar's “Export aircraft points” button, Terra also through Save Features As). Terra placed all 15 points in one action, reading every position from a single screenshot. Sonnet placed them in five batches and clicked (1434, 550) twice, as “Aircraft 9” and again as “Aircraft 12”, which left 16 points. The duplicate cannot be seen on the canvas, but Sonnet had two signals of it: its own comments run up to “Aircraft 16”, and ogrinfo prints Feature Count: 16. Having estimated “approximately 15” at the start, it still accepted 16 as matching the image, so its verification confirmed the file's format but never tested the count against its own estimate.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Verification helps only when the result is compared with something. Sonnet ran the right check and then explained away the one number that contradicted its own count.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-pair" id="pair-praat-vot" role="tabpanel" aria-labelledby="pair-tab-praat-vot" hidden>
+            <header class="osci-pair-head">
+              <p class="osci-kicker">Praat &middot; Linguistics &middot; Phonetics &middot; Task praat_vot_plosive1</p>
+              <h3>Word-initial voice onset time for bat, Pat, bit and pit</h3>
+              <p class="osci-pair-task"><span>Task</span>In Praat's TextGrid editor, the agent annotates word-initial positive voice onset time (VOT) for bat, Pat, bit and pit in Plosive1.wav. Each interval runs from the supplied burst-release boundary to the onset of sustained periodic voicing (the first regular glottal cycle, not isolated transients) and is labeled VOT. The annotation must be done through the GUI and saved as a text TextGrid. Each word's start, end and duration must lie within 2 ms (bat, bit) or 5 ms (Pat, pit) of a private reference.</p>
+            </header>
+            <div class="osci-pair-runs">
+            <section class="osci-run is-success" aria-label="Successful run: GPT-6 Astra">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Successful run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-6 Astra</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-pass">PASS</span><span class="osci-badge is-score">Score 1.00</span></p>
+                <p class="osci-run-meta">27 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 96%</p>
+                <p class="osci-run-result">VOTs of 10.2, 85.5, 12.9 and 102.5 ms (bat, Pat, bit, pit); all four words pass.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-6 Astra run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step002.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step002.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 2"></a>
+                    <figcaption><span class="osci-step-no">Step 2 <em>&middot; 1 / 7</em></span>The maximized TextGrid editor shows the four words, and both tiers share the supplied boundaries. Astra hides the IPA palette, which widens the time axis, and zooms into bat on its second try (step 3).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step005.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step005.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 5"></a>
+                    <figcaption><span class="osci-step-no">Step 5 <em>&middot; 2 / 7</em></span>A 74-ms view of bat after its release: “the initial release transient is followed by regular vowel cycles beginning near 1.0515 s.” Astra adds the endpoint with Ctrl+F9 and types VOT.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step008.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step008.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 8"></a>
+                    <figcaption><span class="osci-step-no">Step 8 <em>&middot; 3 / 7</em></span>Ctrl+F9 had added the boundary to both tiers (word tier now at 10 intervals). Astra removes the extra word-tier boundary at 1.051521 s, keeps the VOT label, and uses the tier-specific Ctrl+F2 from then on.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step010.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step010.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 10"></a>
+                    <figcaption><span class="osci-step-no">Step 10 <em>&middot; 4 / 7</em></span>Pat in a 75.5-ms view: after the aspiration noise, “Pat's sustained cycles begin around 3.257 s”. The endpoint goes on tier 2 only.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step012.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step012.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 12"></a>
+                    <figcaption><span class="osci-step-no">Step 12 <em>&middot; 5 / 7</em></span>Bit in a 60-ms view, with the whole periodic train in sight: “Bit's first sustained vowel cycle begins near 5.8786 s, after the initial release noise.”</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step015.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step015.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 15"></a>
+                    <figcaption><span class="osci-step-no">Step 15 <em>&middot; 6 / 7</em></span>The overview after pit: four short VOT intervals at the word starts, and the word tier back at nine intervals. Astra then re-zooms each word to check its endpoint (steps 15–21).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/success-step024.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/success-step024.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-6 Astra, screenshot before its action at step 24"></a>
+                    <figcaption><span class="osci-step-no">Step 24 <em>&middot; 7 / 7</em></span>Astra saves with File &gt; Save TextGrid as text file under the requested file name and finishes after 27 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>One-line plans as code comments.</p>
+            </section>
+            <section class="osci-run is-failure" aria-label="Failed run: Claude Fable 5.1">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Failed run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/anthropic.svg" alt="" aria-hidden="true" width="16" height="16">Claude Fable 5.1</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-fail">FAIL · wrong content</span><span class="osci-badge is-score">Score 0.55</span></p>
+                <p class="osci-run-meta">47 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 100%</p>
+                <p class="osci-run-result">bat and bit end 4.1 and 4.4 ms late (tolerance 2 ms); Pat and pit pass. Score 0.55.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="Claude Fable 5.1 run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step006.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step006.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 6"></a>
+                    <figcaption><span class="osci-step-no">Step 6 <em>&middot; 1 / 7</em></span>Bat in a 38-ms view. Fable puts the onset at the rising edge of the pulse “peaking near x≈565”, which it takes to be the first regular ≈108 Hz cycle.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step007.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step007.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 7"></a>
+                    <figcaption><span class="osci-step-no">Step 7 <em>&middot; 2 / 7</em></span>Clicking inside the VOT tier selected the whole interval, so Enter raises “Cannot add boundaries … because there are already boundaries there”. Similar interface slips cost steps 7–8 and 26–31.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step010.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step010.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 10"></a>
+                    <figcaption><span class="osci-step-no">Step 10 <em>&middot; 3 / 7</em></span>The bat boundary is set at 1.055667 s, a VOT of 14.4 ms, and labeled VOT.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step014.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step014.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 14"></a>
+                    <figcaption><span class="osci-step-no">Step 14 <em>&middot; 4 / 7</em></span>Pat at a 10.8-ms zoom: “The transient pulse around 3.2592 s is isolated; the first regular glottal cycle begins … (~3.2624 s).”</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step019.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step019.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 19"></a>
+                    <figcaption><span class="osci-step-no">Step 19 <em>&middot; 5 / 7</em></span>Bit at a 10.2-ms zoom. Fable passes over the first small pulse (~5.8795 s), which is “followed by a return to baseline”, and waits for “the large regular pulse” at ≈5.8831 s.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step020.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step020.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 20"></a>
+                    <figcaption><span class="osci-step-no">Step 20 <em>&middot; 6 / 7</em></span>The boundary lands at 5.883114 s, a VOT of 17.5 ms. Astra's VOT for the same word is 12.9 ms.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/praat-vot/failure-step045.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/praat-vot/failure-step045.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Claude Fable 5.1, screenshot before its action at step 45"></a>
+                    <figcaption><span class="osci-step-no">Step 45 <em>&middot; 7 / 7</em></span>Fable checks its save through the save dialog. It finds the completed TextGrid next to a stray “.TextGrid” that its step-42 check had saved by accident, and moves the stray file to the trash. It finishes after 47 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Plans and measurements before every action.</p>
+            </section>
+            </div>
+            <div class="osci-case-text osci-pair-analysis">
+              <h4>Analysis</h4>
+              <p>Both runs work in the same waveform-and-spectrogram view and keep the supplied release boundaries, so the only difference is where each places voicing onset. Astra placed every boundary in a 60–76 ms window, where the periodic train is visible as a whole, at the first cycle of that train. Fable also looked at each word in a 43–131 ms view, but placed its boundaries after zooming further, to 38 ms (bat), 10.8 ms (Pat), 10.2 ms (bit) and 34.5 ms (pit); the two narrowest show only a cycle or two. In every word it waited for a larger pulse: in bat it called the stretch before it “a low-amplitude irregular region” already in a 72-ms view, and in Pat, bit and pit it set aside a first, smaller pulse as a transient. All four of its VOTs came out 4.1–5.4 ms longer than Astra's. In bit the zoom decided the outcome: at 43.5 ms Fable put the onset at “~5.879 s”, next to Astra's 5.8786 s, and at 10.2 ms it moved it to 5.8831 s. Against the private reference, bat and bit end 4.1 and 4.4 ms late, beyond their 2-ms tolerance, while Pat and pit stay within 5 ms. Fable's interface slips cost steps, not points.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>More zoom is not more precision. In a 43-ms view Fable read bit's voicing onset where Astra did; at a 10-ms zoom it took that first, smaller cycle for an isolated pulse and ended 4.4 ms late. In bat it waited for a larger pulse even at 72 ms.</p>
+              </div>
+            </div>
+          </article>
+          <article class="osci-pair" id="pair-ds9-lightcurve" role="tabpanel" aria-labelledby="pair-tab-ds9-lightcurve" hidden>
+            <header class="osci-pair-head">
+              <p class="osci-kicker">SAOImage DS9 with CIAO (DAX) &middot; Physics &middot; X-ray astronomy &middot; Task chandra-ds9-lightcurve-4479-01</p>
+              <h3>Background-subtracted light curve of a Chandra source</h3>
+              <p class="osci-pair-task"><span>Task</span>The level-2 event file of Chandra ObsID 4479 is loaded in DS9. With a given source circle and background annulus, the agent measures the source's background-subtracted count rate in 5000-s time bins. It reports the time offset (dt) of the peak bin, the dt of the first bin above 0.015 counts/s, the peak rate to four significant figures, and the highest rate with 1000-s bins. The answers go into answer.xlsx, and DS9 must stay open with both regions. Each answer is worth a quarter of the score.</p>
+            </header>
+            <div class="osci-pair-runs">
+            <section class="osci-run is-success" aria-label="Successful run: Kimi K3">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Successful run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/moonshot.svg" alt="" aria-hidden="true" width="16" height="16">Kimi K3</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-pass">PASS</span><span class="osci-badge is-score">Score 1.00</span></p>
+                <p class="osci-run-meta">77 of 150 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 93%</p>
+                <p class="osci-run-result">45000, 35000, 0.05475 and 0.06862: all four answers pass.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="Kimi K3 run, 7 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step038.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step038.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 38"></a>
+                    <figcaption><span class="osci-step-no">Step 38 <em>&middot; 1 / 7</em></span>Earlier attempts had the radius fields revert (steps 32–37); now “Generate worked — the Radius list now shows 67.073171 and 105.69106.” The annulus is centered on the same physical position as the source circle, (3442.9172, 3711.2736).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step047.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step047.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 47"></a>
+                    <figcaption><span class="osci-step-no">Step 47 <em>&middot; 2 / 7</em></span>In the annulus dialog's Property menu, Kimi switches the region from Source to Background.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step053.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step053.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 53"></a>
+                    <figcaption><span class="osci-step-no">Step 53 <em>&middot; 3 / 7</em></span>Analysis &gt; CIAO tools (DAX) &gt; Histograms offers Lightcurve (Time). Keeping the cascading menu open took several attempts (steps 49–52).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step055.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step055.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 55"></a>
+                    <figcaption><span class="osci-step-no">Step 55 <em>&middot; 4 / 7</em></span>With a 5000-s bin size, DAX runs the light-curve extraction (its parameter log is on the left) and plots NET_RATE against DT. The peak bin is near DT = 45,000 s.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step058.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step058.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 58"></a>
+                    <figcaption><span class="osci-step-no">Step 58 <em>&middot; 5 / 7</em></span>Kimi lists the NET_RATE column of the DAX output in a terminal. The maximum is 0.054750 counts/s at DT = 45,000 s, and the first bin above 0.015 is DT = 35,000 s (0.026022).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step067.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step067.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 67"></a>
+                    <figcaption><span class="osci-step-no">Step 67 <em>&middot; 6 / 7</em></span>A second DAX run with 1000-s bins (dax2) sits next to the 5000-s curve. Its highest bin, 0.068624 counts/s at DT = 49,000 s, is read the same way (steps 68–69).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="6" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/success-step073.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/success-step073.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Kimi K3, screenshot before its action at step 73"></a>
+                    <figcaption><span class="osci-step-no">Step 73 <em>&middot; 7 / 7</em></span>The four answers are typed into answer.xlsx in LibreOffice Calc and saved with Ctrl+S. Kimi finishes after 77 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 7</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>Plans on about half of the steps; the other responses are code only.</p>
+            </section>
+            <section class="osci-run is-failure" aria-label="Failed run: GPT-5.6 terra">
+              <div class="osci-run-head">
+                <p class="osci-run-kind">Failed run</p>
+                <h4><span class="osci-model-chip"><img src="static/images/logos/openai.svg" alt="" aria-hidden="true" width="16" height="16">GPT-5.6 terra</span></h4>
+                <p class="osci-run-badges"><span class="osci-badge is-fail">FAIL · wrong content</span><span class="osci-badge is-score">Score 0.50</span></p>
+                <p class="osci-run-meta">42 of 100 steps &middot; <abbr title="Fraction of the run's action steps that operate the application GUI">GUI share</abbr> 76%</p>
+                <p class="osci-run-result">45000 and 35000 pass; 0.05406 and 0.06775 are both 1.3% low. Score 0.5.</p>
+                <p class="osci-run-note">The task allows 150 steps; this model was run with a 100-step limit, and it stopped on its own at step 42.</p>
+              </div>
+              <div class="osci-stepper" data-stepper aria-label="GPT-5.6 terra run, 6 selected steps">
+                <div class="osci-stepper-frames">
+                  <figure class="osci-step is-active" data-step="0">
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step010.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step010.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 10"></a>
+                    <figcaption><span class="osci-step-no">Step 10 <em>&middot; 1 / 6</em></span>Terra writes both regions to a region file from a terminal (step 8) and loads it with Region &gt; Open. The source circle and the dashed background annulus appear.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="1" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step013.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step013.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 13"></a>
+                    <figcaption><span class="osci-step-no">Step 13 <em>&middot; 2 / 6</em></span>Steps 10–30 go to the Analysis &gt; CIAO tools (DAX) menus. Terra hovers the cascading submenus again and again but runs only Net Counts (step 28) and Statistics (dmstat) (step 30).</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="2" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step028.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step028.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 28"></a>
+                    <figcaption><span class="osci-step-no">Step 28 <em>&middot; 3 / 6</em></span>The Count Rates and Fluxes submenu offers Net Counts and Photometry. The DAX light-curve tool is never run.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="3" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step029.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step029.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 29"></a>
+                    <figcaption><span class="osci-step-no">Step 29 <em>&middot; 4 / 6</em></span>Net Counts gives one rate for the whole observation in the source circle (COUNTS 2156, COUNT_RATE 0.0243752 counts/s), with no time bins.</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="4" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step038.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step038.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 38"></a>
+                    <figcaption><span class="osci-step-no">Step 38 <em>&middot; 5 / 6</em></span>In a terminal, Terra runs dmextract with opt=generic on the source and background separately and computes (source − 0.0223 × background) / 5000 and / 1000 in Python. dmextract warns: “You might instead want to use opt=pha1 or opt=ltc1.”</figcaption>
+                  </figure>
+                  <figure class="osci-step" data-step="5" hidden>
+                    <a class="osci-figure-link" href="static/images/pairs/ds9-lightcurve/failure-step042.jpg" target="_blank" rel="noopener" title="Open the full-size screenshot"><img src="static/images/pairs/ds9-lightcurve/failure-step042.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="GPT-5.6 terra, screenshot before its action at step 42"></a>
+                    <figcaption><span class="osci-step-no">Step 42 <em>&middot; 6 / 6</em></span>openpyxl is not installed, so Terra writes the answers into answer.xlsx by unzipping it and editing the sheet XML: 45000, 35000, 0.05406, 0.06775. It finishes after 42 steps.</figcaption>
+                  </figure>
+                </div>
+                <div class="osci-stepper-controls">
+                  <button class="osci-step-btn" type="button" data-step-prev disabled aria-label="Previous step"><span aria-hidden="true">&larr;</span> Previous</button>
+                  <span class="osci-step-count" data-step-count aria-live="polite">1 / 6</span>
+                  <button class="osci-step-btn" type="button" data-step-next aria-label="Next step">Next <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+              <p class="osci-run-narration"><span>Model narration</span>None: the run logs code only, so these captions describe the logged actions and the screen.</p>
+            </section>
+            </div>
+            <div class="osci-case-text osci-pair-analysis">
+              <h4>Analysis</h4>
+              <p>Both runs found the same peak bin (dt = 45,000 s) and the same first bin above 0.015 counts/s (35,000 s). Only the rate values differ. Kimi drew both regions through DS9's dialogs, marked the annulus as background and ran the DAX Lightcurve (Time) tool twice, then read NET_RATE from the tool's output. Terra spent 21 steps in the DAX menus without running that tool. It rebuilt the light curve in a terminal from generic dmextract time histograms, dividing background-subtracted counts by the nominal bin width and passing over dmextract's hint to use opt=ltc1. Both of its rates come out at 0.987 times Kimi's (0.05406/0.05475 and 0.06775/0.06862). That factor is the observation's dead-time correction (DTCOR = 0.98734 in the event file's header), which the light-curve tool folds into each bin's exposure, so the four-significant-figure answers miss.</p>
+              <div class="osci-takeaway">
+                <span>Takeaway</span>
+                <p>Rebuilding a standard tool by hand is a quiet risk. The bins and the peak were right, but the dead-time correction the GUI tool applies was lost. The only warning was dmextract's hint to use opt=ltc1, printed after each of Terra's four dmextract calls, and Terra passed over it.</p>
+              </div>
+            </div>
+          </article>
+          <p class="osci-pair-defs">A step is one model call and the action it returned; the frame shown for step <em>N</em> is the screenshot the model saw before that action. GUI share is the fraction of the run's action steps that operate the application GUI. Score is the grader score in [0, 1]; PASS means full credit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="showcase">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Trajectory Showcase</h2>
+            <p class="section-deck">Ten tasks in five applications (QuPath, ANSYS Fluent, SAOImage DS9, Praat and QGIS), one fully credited run each, from seven models. Every frame is the agent&#39;s own screenshot; open the task showcase to step through a full run.</p>
+          </div>
+        </div>
+        <div class="domain-showcase-full">
+          <div class="domain-showcase-rail" id="domain-showcase-rail" aria-label="Representative task trajectory screenshots">
+            <div class="domain-showcase-track" id="domain-showcase-track"></div>
+          </div>
+        </div>
+        <div class="has-text-centered showcase-link">
+          <a href="task-showcase/index.html" class="button is-medium is-rounded is-dark">
+            <span class="icon"><i class="fas fa-images"></i></span>
+            <span>Task showcase</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section alt-section reference-section" id="citation">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered section-heading visual-heading">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2">Citation</h2>
+            <pre class="bibtex-block"><code>@misc{dai2026osworldscience,
+  title  = {{OSWorld-Science}: A Benchmark of Computer Use Agents for Learning and Using Scientific Software},
+  author = {Dai, Dingyuan and Qi, Heli and Liu, Lei and Li, Yinxi and Chen, Baiding and Dou, Zijun and Zeng, Qingcheng and Kang, Qi and Sun, Oliver and Wang, Eric and Zhou, Bo and Wang, Haixin and Du, Yufan and Bo, Shi and Lin, Ruihan and Yuan, Mengqi and Lu, Dunjie and Dillmann, Steven and Shi, Yiming and Su, Tina and Xin, Xin and Liu, Minghao and Wang, Xi and Huang, Xu and Zhang, Ge and Nie, Pengyu and Yang, Zhen and Tang, Jie and Li, Juanzi and Xuan, Weihao and Liu, Tianyu},
+  year   = {2026},
+  note   = {Preprint},
+  url    = {https://github.com/larryinx/OSWorld-Science}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>

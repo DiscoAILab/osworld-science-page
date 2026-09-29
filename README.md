@@ -1,10 +1,13 @@
 ---
-title: Osworld Science Page
-emoji: 🏢
-colorFrom: gray
-colorTo: red
+title: OSWorld-Science
+colorFrom: indigo
+colorTo: green
 sdk: static
+app_file: index.html
 pinned: false
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+Project page for **OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software**.
+
+The page is fully static: open `index.html` (it also works as a local file, no server needed).
+`task-showcase/index.html` replays ten trajectories from five applications step by step.
