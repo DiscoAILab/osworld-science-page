@@ -1,4 +1,21 @@
 /* OSWorld-Science overrides on top of the base template stylesheets. Only what our content needs. */
+/* WeChat community: keep the supplied QR image intact and readable on every screen. */
+#community { scroll-margin-top: 24px; }
+.osci-community-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); align-items: center; gap: 40px; padding: 32px; border: 1px solid #e3e6ec; border-radius: 16px; background: #fff; }
+.osci-community-copy { min-width: 0; }
+.osci-community-copy p { margin-top: 1rem; line-height: 1.65; }
+.osci-community-intro { font-size: 1.1rem; }
+.osci-community-name { font-weight: 600; }
+.osci-community-validity { color: #5b6371; font-size: 0.9rem; }
+.osci-community-qr { margin: 0; text-align: center; }
+.osci-community-qr img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.osci-community-qr figcaption { margin-top: 12px; font-size: 0.9rem; }
+.osci-community-qr a:focus-visible { outline: 3px solid #163d7a; outline-offset: 4px; }
+@media (max-width: 720px) {
+  .osci-community-card { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 20px; }
+  .osci-community-qr { width: 100%; max-width: 360px; justify-self: center; }
+}
+
 .hero-metrics.hero-metrics-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 720px) { .hero-metrics.hero-metrics-four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .hero-video-caption { font-size: 0.82rem; color: #5b6371; margin-top: 0.5rem; text-align: center; }
